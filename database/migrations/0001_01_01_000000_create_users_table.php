@@ -28,12 +28,16 @@ return new class extends Migration
             $table->string('last_name', 255);
             $table->string('cnic');
             $table->string('email', 191)->unique(); // reduced length for utf8mb4_bin
-            $table->string('phone', 191)->unique(); // reduced length
+            $table->string('mobile', 191)->unique(); // reduced length
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
-            $table->timestamp('phone_verified_at')->nullable();
-            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
+            $table->timestamp('phone_verified_at')->nullable(); 
+            // Create role_id as unsignedBigInteger with default 1
+            $table->unsignedBigInteger('role_id')->default(1);
+            // Add foreign key separately
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->enum('status', ['active', 'blocked', 'pending'])->default('pending');
+            $table->text('status_descripition')->default('');;
             $table->rememberToken();
             $table->timestamps();
             // Set engine to InnoDB
