@@ -24,7 +24,9 @@ return new class extends Migration
         });
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name', 255);
+            $table->string('last_name', 255);
+            $table->string('cnic');
             $table->string('email', 191)->unique(); // reduced length for utf8mb4_bin
             $table->string('phone', 191)->unique(); // reduced length
             $table->string('password');
@@ -64,6 +66,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('roles');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
