@@ -24,6 +24,5 @@ Route::post('/register',[Signup::class,'register'])->name('register');
 #####################################
 #####  Login Account PAGE  ######
 #####################################
-Route::get('/signup',[Signup::class,'index']);
-Route::post('/register',[Signup::class,'register'])->name('register');
+Route::get('/login',[Signup::class,'index']);
 

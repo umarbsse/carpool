@@ -122,6 +122,9 @@
             </div>
 
             <button class="btn btn-primary w-100" type="submit">Create Account</button>
+            <div class="mt-3 text-center">
+                    Already have an account? <a href="{{ route('register') }}">Login here</a>
+                </div>
         </form>
 
     </div>
