@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home;
+use App\Http\Controllers\ForgotPassword;
 use App\Http\Controllers\Signup;
 
 use App\Http\Controllers\Login;
@@ -28,6 +29,16 @@ Route::post('/register',[Signup::class,'register'])->name('register');
 #####################################
 Route::get('/login',[Login::class,'index'])->name('login');
 Route::post('/auth',[Login::class,'auth'])->name('auth');
+
+
+#####################################
+#####  Login Account PAGE  ######
+#####################################
+Route::get('/forgotpassword',[ForgotPassword::class,'index'])->name('forgotpassword');
+Route::post('/reset_password',[ForgotPassword::class,'reset_password'])->name('reset_password');
+
+
+
 
 #####################################
 #####  Dashboard  ######

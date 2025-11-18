@@ -47,8 +47,9 @@ return new class extends Migration
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             // Set engine to InnoDB
             $table->engine = 'InnoDB';
-            $table->string('email')->primary();
-            $table->string('token');
+            $table->id();
+            $table->text('email');
+            $table->text('token');
             $table->timestamp('created_at')->nullable();
         });
 
