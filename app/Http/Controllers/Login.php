@@ -24,7 +24,12 @@ class Login
         ]);
         $general = new General();
         $response = $general->authenticate_user($data['login'], $data['password']);
-        //echo "here";
-        //dd($_POST);
+        if(count($response)==0){
+            return redirect()->back()->with('error', 'Authentication Failed!');
+        }else if (!Hash::check($data['password'], $response['password'])) {
+            return redirect()->back()->with('error', 'Authentication Failed!');
+        }else{
+            return redirect()->route('dashboard');
+        }
     }
 }

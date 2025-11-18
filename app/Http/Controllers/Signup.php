@@ -30,13 +30,10 @@ class Signup
         // 2️⃣ Create the user
         $row = $validated;
         $row['password'] = Hash::make($validated['password']);
-        //$row['role_id'] = 1; // 1=passenger, 2=driver
         $general = new General();
         $id = $general->insert_data('users',$row);
-        //$id = insert_get_id('users', $data); // our helper function
-
-        if ($id) {
-            return redirect()->back()->with('success', 'Account created successfully! ');
+        if ($id) {            
+            return redirect()->route('login')->with('success', 'Account created successfully. Login to continue! ');
         } else {
             return redirect()->back()->with('error', 'Failed to insert user.');
         }
