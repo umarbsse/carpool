@@ -85,6 +85,39 @@
             return $randomString;
         }
     }
+    if (!function_exists('increase_decrease_date_time')) {
+
+        function increase_decrease_date_time($currentTimestamp=NULL, $increase_or_decrease_sign=NULL, $time=NULL, $time_unit=NULL) {
+            if ($currentTimestamp==NULL) {
+                $currentTimestamp = get_currentTime();
+            }
+            if ($increase_or_decrease_sign==NULL) {
+                $increase_or_decrease_sign = "+";
+            }
+            if ($time==NULL) {
+                $time = 5;
+            }
+            return date('Y-m-d H:i:s', strtotime($increase_or_decrease_sign.$time." ".$time_unit, strtotime($currentTimestamp)));
+        }
+    }
+    if (!function_exists('password_reset_expire_time')) {
+
+        function password_reset_expire_time_hours() {
+            return 5;
+        }
+    }
+
+    if (!function_exists('password_reset_url')) {
+
+        function password_reset_url($token) {
+            return env('APP_URL').'/new_password/'.$token;
+        }
+    }
+
+
+
+
+    
 
 
 

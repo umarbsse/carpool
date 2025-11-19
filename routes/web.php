@@ -36,6 +36,15 @@ Route::post('/auth',[Login::class,'auth'])->name('auth');
 #####################################
 Route::get('/forgotpassword',[ForgotPassword::class,'index'])->name('forgotpassword');
 Route::post('/reset_password',[ForgotPassword::class,'reset_password'])->name('reset_password');
+Route::get('/reset_password', function () {
+    return redirect()->back()->with('error', 'GET request not allowed');
+});
+
+
+
+Route::get('/send_reset_email/{reset_id}',[ForgotPassword::class,'send_reset_email'])->name('send_reset_email');
+
+
 
 
 

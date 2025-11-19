@@ -16,9 +16,8 @@ class ForgotPassword
         return view($view, $data);
     }
     function reset_password(Request $request){
-        
         $validated = $request->validate([
-            'email'                 => 'required|email|',
+            'email'=>'required|email|',
         ]);
         $general = new General();
         $where = array(
@@ -26,13 +25,42 @@ class ForgotPassword
         );
         $result = $general->get('users',$where);        
         if (count($result)==1) {            
+            $row['name'] = $result[0]['first_name'];
+            if($result[0]['last_name']!=""){
+                $row['name'].= " ".$result[0]['last_name'];
+            }
             $row['email'] = $validated['email'];
             $row['token'] = generateRandomString(100);
             $row['created_at'] = get_currentTime();
+            $row['expired_at'] = increase_decrease_date_time(get_currentTime(), "+", password_reset_expire_time_hours(), "hours");
             $general->insert_data('password_reset_tokens', $row);
+            //die();
             return redirect()->back()->with('success', 'If Email exist you\'ll get the email reset link.');
         } else {
-            return redirect()->back()->with('success', 'If Email exist you\'ll get the email reset link.');
+            //return redirect()->back()->with('success', 'If Email exist you\'ll get the email reset link.');
         }
+    }
+    function send_reset_email(Request $request){
+        $token = $request->reset_id;
+
+        $general = new General();
+        $where = array(
+            array('id','=',$token)
+        );
+        $result = $general->get('password_reset_tokens',$where);
+        if(count($result)==1){
+            //print_arr($result);
+            //die();
+            $data = [
+                'appname' => env('APP_NAME'),
+                'username' => $result[0]['name'],
+                'password_expire_time' => password_reset_expire_time_hours()." Hours",
+                'reset_url' => password_reset_url($result[0]['token']),
+                'year' => get_currentTime('Y'),
+                'supprtmail' => 'contact@'.env('APP_NAKED_DOMAIN'),
+            ];
+        }
+        $view = get_view_path($request);
+        return view($view, $data);
     }
 }

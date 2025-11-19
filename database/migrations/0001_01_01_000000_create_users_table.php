@@ -48,9 +48,11 @@ return new class extends Migration
             // Set engine to InnoDB
             $table->engine = 'InnoDB';
             $table->id();
+            $table->text('name');
             $table->text('email');
             $table->text('token');
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('expired_at')->nullable();
         });
 
         Schema::create('sessions', function (Blueprint $table) {
