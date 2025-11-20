@@ -13,11 +13,30 @@ class General extends Model
         if(allow_print_query()==true){
             DB::enableQueryLog();
         }
+
         $query  = DB::table($table);
-        if($where!=NULL){
-            $query->where($where);
+        if ($where !== null) {
+            // Check if the array is numerically indexed (e.g., [['col', '>', 5], ...])
+            // The check below confirms if keys are NOT associative/strings.
+            $is_indexed_array = array_keys($where) === range(0, count($where) - 1);
+            
+            if ($is_indexed_array) {
+                // Case 1: Array of arrays, requires iteration.
+                // Example: [['votes', '>', 100], ['age', '<', 30]]
+                foreach ($where as $condition) {
+                    // Ensure it's a valid [column, operator, value] array
+                    if (is_array($condition) && count($condition) === 3) {
+                        $query->where($condition[0], $condition[1], $condition[2]);
+                    }
+                }
+            } else {
+                // Case 2: Associative array, Query Builder handles it directly.
+                // Example: ['status' => 1, 'role' => 'admin']
+                $query->where($where);
+            }
         }
         $result = $query->get();
+
         return json_decode(json_encode($result), true);
     }
     function authenticate_user($login_pram, $password){

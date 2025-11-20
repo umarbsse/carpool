@@ -32,7 +32,7 @@ Route::post('/auth',[Login::class,'auth'])->name('auth');
 
 
 #####################################
-#####  Login Account PAGE  ######
+#####    Password reset PAGE   ######
 #####################################
 Route::get('/forgotpassword',[ForgotPassword::class,'index'])->name('forgotpassword');
 Route::post('/reset_password',[ForgotPassword::class,'reset_password'])->name('reset_password');
@@ -43,6 +43,10 @@ Route::get('/reset_password', function () {
 
 
 Route::get('/send_reset_email/{reset_id}',[ForgotPassword::class,'send_reset_email'])->name('send_reset_email');
+
+Route::get('/new_password/{reset_token}',[ForgotPassword::class,'new_password'])->name('new_password');
+Route::post('/password_update',[ForgotPassword::class,'password_update'])->name('password_update');
+
 
 
 

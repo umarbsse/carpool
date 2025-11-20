@@ -103,7 +103,7 @@
     if (!function_exists('password_reset_expire_time')) {
 
         function password_reset_expire_time_hours() {
-            return 5;
+            return 1;
         }
     }
 

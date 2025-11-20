@@ -63,4 +63,30 @@ class ForgotPassword
         $view = get_view_path($request);
         return view($view, $data);
     }
+    function new_password(Request $request){
+
+        $token = $request->reset_token;
+        $time = get_currentTime(); // Must return a proper timestamp
+
+        $general = new General();
+
+        // Only fetch valid (not expired) token
+        $where = [
+            ["token", "=", $token],
+            ["expired_at", ">", $time], // valid tokens
+        ];
+        $result = $general->get('password_reset_tokens', $where, true);
+        if ($result) {
+            $data = [
+                'appname' => env('APP_NAME'),
+                'token' => $token,
+            ];
+
+            $view = get_view_path($request);
+            return view($view, $data);
+        } else {
+            return redirect()->route('forgotpassword')
+                            ->with('error', 'Invalid password reset token or token expired!');
+        }
+    }
 }
