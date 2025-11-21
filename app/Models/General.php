@@ -49,4 +49,14 @@ class General extends Model
     function insert_data($table_name, $data){
         return DB::table($table_name)->insertGetId($data);
     }
+    function update_data($table_name, $where, $data){
+        //DB::enableQueryLog();
+        $updated = DB::table($table_name)->where($where)->update($data);
+        //dd(DB::getQueryLog());
+        if ($updated > 0) {
+            return true;
+        }else{
+            return false;
+        }
+    } 
 }

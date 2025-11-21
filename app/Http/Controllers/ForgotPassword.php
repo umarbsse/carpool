@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\General; // Include the model
+use Illuminate\Support\Facades\Hash;
 
 class ForgotPassword
 {
@@ -87,6 +88,38 @@ class ForgotPassword
         } else {
             return redirect()->route('forgotpassword')
                             ->with('error', 'Invalid password reset token or token expired!');
+        }
+    }
+    function password_update(Request $request){
+        
+        $validated = $request->validate([
+            'password'              => 'required|string|min:6|confirmed',
+        ]);
+
+        $token = $request->token;
+        $time = get_currentTime(); // Must return a proper timestamp
+        $general = new General();
+
+        // Only fetch valid (not expired) token
+        $where = [
+            ["token", "=", $token],
+            ["expired_at", ">", $time], // valid tokens
+        ];
+        $result = $general->get('password_reset_tokens', $where, true);
+        if (count($result)==1) {
+            $where = [
+                ["email", "=", $result[0]['email']]
+            ];
+            $row['password'] = Hash::make($validated['password']);
+            $is_updated = $general->update_data('users', $where, $row);
+            if($is_updated>0){
+                return redirect()->route('login')->with('success', 'Password updated successfully. Login to continue! ');
+            }else{
+                return redirect()->back()->with('error', 'Invalid password reset token or token expired!');
+            }
+        } else {
+            
+                return redirect()->back()->with('error', 'Invalid password reset token or token expired!');
         }
     }
 }
