@@ -52,7 +52,7 @@
         <nav class="navbar navbar-expand-lg bg-white rounded shadow-sm mb-4 p-3">
             <span class="navbar-brand">Dashboard</span>
             <div class="ms-auto">
-                <button class="btn btn-dark btn-sm">Logout</button>
+                <a href="{{route('logout')}}" class="btn btn-dark btn-sm">Logout</a>
             </div>
         </nav>
 

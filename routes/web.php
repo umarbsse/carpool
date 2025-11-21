@@ -6,7 +6,10 @@ use App\Http\Controllers\ForgotPassword;
 use App\Http\Controllers\Signup;
 
 use App\Http\Controllers\Login;
+use App\Http\Controllers\Logout;
 use App\Http\Controllers\Dashboard;
+
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -29,6 +32,7 @@ Route::post('/register',[Signup::class,'register'])->name('register');
 #####################################
 Route::get('/login',[Login::class,'index'])->name('login');
 Route::post('/auth',[Login::class,'auth'])->name('auth');
+Route::get('/logout',[Logout::class,'index'])->name('logout');
 
 
 #####################################
