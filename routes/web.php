@@ -56,5 +56,9 @@ Route::post('/password_update',[ForgotPassword::class,'password_update'])->name(
 #####################################
 #####  Dashboard  ######
 #####################################
-Route::get('/dashboard',[Dashboard::class,'index'])->name('dashboard');
+
+
+Route::middleware(['auth_middleware'])->group(function () {
+    Route::get('/dashboard',[Dashboard::class,'index'])->name('dashboard');
+});
 
