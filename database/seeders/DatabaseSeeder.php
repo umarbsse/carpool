@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RolesTableSeeder::class,
+            GeoLocationSeeder::class,
         ]);
         // User::factory(10)->create();
 

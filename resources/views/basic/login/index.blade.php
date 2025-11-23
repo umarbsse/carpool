@@ -63,8 +63,14 @@
 
                 <button type="submit" class="btn btn-primary w-100">Login</button>
 
-                <div class="mt-3 text-center">
-                    Don't have an account? <a href="{{ route('signup') }}">Register here</a>
+                
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <a href="{{ route('forgotpassword') }}">Reset Password</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{{ route('signup') }}">Register here</a>
+                    </div>
                 </div>
             </form>
         </div>

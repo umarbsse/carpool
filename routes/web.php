@@ -17,8 +17,8 @@ use App\Http\Controllers\Dashboard;
 
 
 
-Route::get('/', [Home::class, 'index']);
-Route::get('all', [Home::class, 'index']);
+Route::get('/', [Home::class, 'index'])->name('home');
+//Route::get('all', [Home::class, 'index']);
 
 
 #####################################
