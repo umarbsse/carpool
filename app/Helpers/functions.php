@@ -8,9 +8,25 @@
             $action = $route->getActionName(); // e.g., App\Http\Controllers\HomeController@index
             $controllerName = class_basename(explode('@', $action)[0]); // HomeController
             $methodName = explode('@', $action)[1] ?? null; // index
-            $template_name = env('APP_TEMPLATE', 'basic'); // second param is default
+            $template_name = env('APP_TEMPLATE_PUBLIC', 'basic'); // second param is default
             $view = $template_name.'.'.strtolower($controllerName).'.'.$methodName;
             return $view; 
+        }
+    }
+    if (!function_exists('get_controller_name')) {
+        function get_controller_name($request){
+            $route = $request->route();
+            $action = $route->getActionName(); // e.g., App\Http\Controllers\HomeController@index
+            $methodName = explode('@', $action)[1] ?? null; // index
+            return strtolower($methodName); 
+        }
+    }
+    if (!function_exists('get_controller_method_name')) {
+        function get_controller_method_name($request){
+            $route = $request->route();
+            $action = $route->getActionName(); // e.g., App\Http\Controllers\HomeController@index
+            $controllerName = class_basename(explode('@', $action)[0]); // HomeController
+            return strtolower($controllerName); 
         }
     }
     if (!function_exists('print_arr')) {

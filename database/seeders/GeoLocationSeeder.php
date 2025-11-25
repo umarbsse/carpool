@@ -215,6 +215,336 @@ class GeoLocationSeeder extends Seeder
         
         
         // Punjab Tehsile List
+       
+
+        $punjab_tehsile = [
+            // Attock
+            ['name' => 'Attock', 'district_name' => 'Attock', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Hassanabdal', 'district_name' => 'Attock', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Fateh Jang', 'district_name' => 'Attock', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Jand', 'district_name' => 'Attock', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Pindi Gheb', 'district_name' => 'Attock', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Hazro', 'district_name' => 'Attock', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Bahawalpur
+            ['name' => 'Bahawalpur City', 'district_name' => 'Bahawalpur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Bahawalpur Saddar', 'district_name' => 'Bahawalpur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Ahmadpur East', 'district_name' => 'Bahawalpur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Hasilpur', 'district_name' => 'Bahawalpur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Yazman', 'district_name' => 'Bahawalpur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Khairpur Tamewali', 'district_name' => 'Bahawalpur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Bahawalnagar
+            ['name' => 'Bahawalnagar', 'district_name' => 'Bahawalnagar', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Chishtian', 'district_name' => 'Bahawalnagar', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Fort Abbas', 'district_name' => 'Bahawalnagar', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Haroonabad', 'district_name' => 'Bahawalnagar', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Minchinabad', 'district_name' => 'Bahawalnagar', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Bhakkar
+            ['name' => 'Bhakkar', 'district_name' => 'Bhakkar', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Darya Khan', 'district_name' => 'Bhakkar', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Mankera', 'district_name' => 'Bhakkar', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kaloorkot', 'district_name' => 'Bhakkar', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Chakwal
+            ['name' => 'Chakwal', 'district_name' => 'Chakwal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Choa Saidan Shah', 'district_name' => 'Chakwal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kallar Kahar', 'district_name' => 'Chakwal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Chiniot
+            ['name' => 'Chiniot', 'district_name' => 'Chiniot', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Bhowana', 'district_name' => 'Chiniot', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Lalian', 'district_name' => 'Chiniot', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Dera Ghazi Khan
+            ['name' => 'Dera Ghazi Khan', 'district_name' => 'Dera Ghazi Khan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kot Chutta', 'district_name' => 'Dera Ghazi Khan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Faisalabad
+            ['name' => 'Faisalabad City', 'district_name' => 'Faisalabad', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Faisalabad Saddar', 'district_name' => 'Faisalabad', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Jaranwala', 'district_name' => 'Faisalabad', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Samundri', 'district_name' => 'Faisalabad', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Tandlianwala', 'district_name' => 'Faisalabad', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Chak Jhumra', 'district_name' => 'Faisalabad', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Gujranwala
+            ['name' => 'Gujranwala City', 'district_name' => 'Gujranwala', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Gujranwala Saddar', 'district_name' => 'Gujranwala', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kamoke', 'district_name' => 'Gujranwala', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Naushehra Virkan', 'district_name' => 'Gujranwala', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Gujrat
+            ['name' => 'Gujrat', 'district_name' => 'Gujrat', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kharian', 'district_name' => 'Gujrat', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Sarai Alamgir', 'district_name' => 'Gujrat', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Jalalpur Jattan', 'district_name' => 'Gujrat', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kunjah', 'district_name' => 'Gujrat', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+
+            // Hafizabad
+            ['name' => 'Hafizabad', 'district_name' => 'Hafizabad', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Pindi Bhattian', 'district_name' => 'Hafizabad', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Jhang
+            ['name' => 'Jhang', 'district_name' => 'Jhang', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Shorkot', 'district_name' => 'Jhang', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Ahmad Pur Sial', 'district_name' => 'Jhang', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => '18-Hazari', 'district_name' => 'Jhang', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Jhelum
+            ['name' => 'Jhelum', 'district_name' => 'Jhelum', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Pind Dadan Khan', 'district_name' => 'Jhelum', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Sohawa', 'district_name' => 'Jhelum', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Dina', 'district_name' => 'Jhelum', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Kasur
+            ['name' => 'Kasur', 'district_name' => 'Kasur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kot Radha Kishan', 'district_name' => 'Kasur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Chunian', 'district_name' => 'Kasur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Pattoki', 'district_name' => 'Kasur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Khanewal
+            ['name' => 'Khanewal', 'district_name' => 'Khanewal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Mian Channu', 'district_name' => 'Khanewal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kabirwala', 'district_name' => 'Khanewal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Jahanian', 'district_name' => 'Khanewal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Khushab
+            ['name' => 'Khushab', 'district_name' => 'Khushab', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Noorpur Thal', 'district_name' => 'Khushab', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Quaidabad', 'district_name' => 'Khushab', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Lahore
+            ['name' => 'Lahore City', 'district_name' => 'Lahore', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Model Town', 'district_name' => 'Lahore', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Raiwind', 'district_name' => 'Lahore', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Shalimar', 'district_name' => 'Lahore', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Nishtar', 'district_name' => 'Lahore', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Wagha', 'district_name' => 'Lahore', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Allama Iqbal', 'district_name' => 'Lahore', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Saddar', 'district_name' => 'Lahore', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Ravi', 'district_name' => 'Lahore', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Cantt', 'district_name' => 'Lahore', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+
+            // Layyah
+            ['name' => 'Layyah', 'district_name' => 'Layyah', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Karor Lal Esan', 'district_name' => 'Layyah', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Chaubara', 'district_name' => 'Layyah', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Lodhran
+            ['name' => 'Lodhran', 'district_name' => 'Lodhran', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Dunyapur', 'district_name' => 'Lodhran', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kahror Pacca', 'district_name' => 'Lodhran', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Mandi Bahauddin
+            ['name' => 'Mandi Bahauddin', 'district_name' => 'Mandi Bahauddin', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Phalia', 'district_name' => 'Mandi Bahauddin', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Malakwal', 'district_name' => 'Mandi Bahauddin', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Mianwali
+            ['name' => 'Mianwali', 'district_name' => 'Mianwali', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Isakhel', 'district_name' => 'Mianwali', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Piplan', 'district_name' => 'Mianwali', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Multan
+            ['name' => 'Multan City', 'district_name' => 'Multan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Multan Saddar', 'district_name' => 'Multan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Shujabad', 'district_name' => 'Multan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Jalalpur Pirwala', 'district_name' => 'Multan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Murree
+            ['name' => 'Murree', 'district_name' => 'Murree', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kotli Sattian', 'district_name' => 'Murree', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Muzaffargarh
+            ['name' => 'Muzaffargarh', 'district_name' => 'Muzaffargarh', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Alipur', 'district_name' => 'Muzaffargarh', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Jatoi', 'district_name' => 'Muzaffargarh', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+
+            // Narowal
+            ['name' => 'Narowal', 'district_name' => 'Narowal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Shakargarh', 'district_name' => 'Narowal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Zafarwal', 'district_name' => 'Narowal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Nankana Sahib
+            ['name' => 'Nankana Sahib', 'district_name' => 'Nankana Sahib', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Shahkot', 'district_name' => 'Nankana Sahib', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Sangla Hill', 'district_name' => 'Nankana Sahib', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Okara
+            ['name' => 'Okara', 'district_name' => 'Okara', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Depalpur', 'district_name' => 'Okara', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Renala Khurd', 'district_name' => 'Okara', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Pakpattan
+            ['name' => 'Pakpattan', 'district_name' => 'Pakpattan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Arifwala', 'district_name' => 'Pakpattan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Rahim Yar Khan
+            ['name' => 'Rahim Yar Khan', 'district_name' => 'Rahim Yar Khan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Khanpur', 'district_name' => 'Rahim Yar Khan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Liaquatpur', 'district_name' => 'Rahim Yar Khan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Sadiqabad', 'district_name' => 'Rahim Yar Khan', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Rajanpur
+            ['name' => 'Rajanpur', 'district_name' => 'Rajanpur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Jampur', 'district_name' => 'Rajanpur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Rojhan', 'district_name' => 'Rajanpur', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+
+            // Rawalpindi
+            ['name' => 'Rawalpindi City', 'district_name' => 'Rawalpindi', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Rawalpindi Cantt', 'district_name' => 'Rawalpindi', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Gujar Khan', 'district_name' => 'Rawalpindi', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Taxila', 'district_name' => 'Rawalpindi', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kahuta', 'district_name' => 'Rawalpindi', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kallar Syedan', 'district_name' => 'Rawalpindi', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Sahiwal
+            ['name' => 'Sahiwal', 'district_name' => 'Sahiwal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Chichawatni', 'district_name' => 'Sahiwal', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Sargodha
+            ['name' => 'Sargodha', 'district_name' => 'Sargodha', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Bhalwal', 'district_name' => 'Sargodha', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Bhera', 'district_name' => 'Sargodha', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kot Momin', 'district_name' => 'Sargodha', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Shahpur', 'district_name' => 'Sargodha', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Sillanwali', 'district_name' => 'Sargodha', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Sheikhupura
+            ['name' => 'Sheikhupura', 'district_name' => 'Sheikhupura', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Ferozewala', 'district_name' => 'Sheikhupura', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Muridke', 'district_name' => 'Sheikhupura', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Safdarabad', 'district_name' => 'Sheikhupura', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Sharaqpur', 'district_name' => 'Sheikhupura', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Sialkot
+            ['name' => 'Sialkot', 'district_name' => 'Sialkot', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Daska', 'district_name' => 'Sialkot', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Pasrur', 'district_name' => 'Sialkot', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Sambrial', 'district_name' => 'Sialkot', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Toba Tek Singh
+            ['name' => 'Toba Tek Singh', 'district_name' => 'Toba Tek Singh', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Gojra', 'district_name' => 'Toba Tek Singh', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kamalia', 'district_name' => 'Toba Tek Singh', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Pir Mahal', 'district_name' => 'Toba Tek Singh', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Vehari
+            ['name' => 'Vehari', 'district_name' => 'Vehari', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Burewala', 'district_name' => 'Vehari', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Mailsi', 'district_name' => 'Vehari', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Wazirabad
+            ['name' => 'Wazirabad', 'district_name' => 'Wazirabad', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Alipur Chatha', 'district_name' => 'Wazirabad', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Talagang
+            ['name' => 'Talagang', 'district_name' => 'Talagang', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Lawa', 'district_name' => 'Talagang', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Taunsa
+            ['name' => 'Taunsa', 'district_name' => 'Taunsa', 'province_name' => 'Punjab', 'location_type' => 3, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now]
+        ];
+        DB::table('geo_location')->insert($punjab_tehsile);
+
+
+
+        $sindh_tehsile = [
+            // Badin District
+            ['name' => 'Badin, Badin, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Badin', 'tehsil_name' => 'Badin', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Matli, Badin, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Badin', 'tehsil_name' => 'Matli', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Shaheed Fazal Rahu, Badin, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Badin', 'tehsil_name' => 'Shaheed Fazal Rahu', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Talhar, Badin, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Badin', 'tehsil_name' => 'Talhar', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Tando Bago, Badin, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Badin', 'tehsil_name' => 'Tando Bago', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Dadu District
+            ['name' => 'Dadu, Dadu, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Dadu', 'tehsil_name' => 'Dadu', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Johi, Dadu, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Dadu', 'tehsil_name' => 'Johi', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Khairpur Nathan Shah, Dadu, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Dadu', 'tehsil_name' => 'Khairpur Nathan Shah', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Mehar, Dadu, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Dadu', 'tehsil_name' => 'Mehar', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+           
+            // Hyderabad District
+            ['name' => 'Hyderabad City, Hyderabad, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Hyderabad', 'tehsil_name' => 'Hyderabad City', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Hyderabad Saddar, Hyderabad, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Hyderabad', 'tehsil_name' => 'Hyderabad Saddar', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Latifabad, Hyderabad, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Hyderabad', 'tehsil_name' => 'Latifabad', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Qasimabad, Hyderabad, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Hyderabad', 'tehsil_name' => 'Qasimabad', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+           
+            // Jacobabad District
+            ['name' => 'Jacobabad, Jacobabad, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Jacobabad', 'tehsil_name' => 'Jacobabad', 'location_type' => 3, 'is_enable' => 1, 'lat' => 28.2810, 'lng' => 68.4383, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Garhi Khairo, Jacobabad, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Jacobabad', 'tehsil_name' => 'Garhi Khairo', 'location_type' => 3, 'is_enable' => 1, 'lat' => 28.2200, 'lng' => 68.7400, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Thul, Jacobabad, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Jacobabad', 'tehsil_name' => 'Thul', 'location_type' => 3, 'is_enable' => 1, 'lat' => 28.2167, 'lng' => 68.7833, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+
+           
+            // Jamshoro District
+            ['name' => 'Kotri, Jamshoro, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Jamshoro', 'tehsil_name' => 'Kotri', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Sehwan, Jamshoro, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Jamshoro', 'tehsil_name' => 'Sehwan', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Manjhand, Jamshoro, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Jamshoro', 'tehsil_name' => 'Manjhand', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Thana Bula Khan, Jamshoro, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Jamshoro', 'tehsil_name' => 'Thana Bula Khan', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+
+            // Kamber Shahdadkot District
+            ['name' => 'Qambar, Kamber Shahdadkot, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Kamber Shahdadkot', 'tehsil_name' => 'Qambar', 'location_type' => 3, 'is_enable' => 1, 'lat' => 27.8000, 'lng' => 68.1200, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Shahdadkot, Kamber Shahdadkot, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Kamber Shahdadkot', 'tehsil_name' => 'Shahdadkot', 'location_type' => 3, 'is_enable' => 1, 'lat' => 27.8700, 'lng' => 67.9500, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Miro Khan, Kamber Shahdadkot, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Kamber Shahdadkot', 'tehsil_name' => 'Miro Khan', 'location_type' => 3, 'is_enable' => 1, 'lat' => 27.9100, 'lng' => 68.0500, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Nasirabad, Kamber Shahdadkot, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Kamber Shahdadkot', 'tehsil_name' => 'Nasirabad', 'location_type' => 3, 'is_enable' => 1, 'lat' => 27.9200, 'lng' => 68.0800, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Qubo Saeed Khan, Kamber Shahdadkot, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Kamber Shahdadkot', 'tehsil_name' => 'Qubo Saeed Khan', 'location_type' => 3, 'is_enable' => 1, 'lat' => 27.9400, 'lng' => 68.1000, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Sijawal Junejo, Kamber Shahdadkot, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Kamber Shahdadkot', 'tehsil_name' => 'Sijawal Junejo', 'location_type' => 3, 'is_enable' => 1, 'lat' => 27.9600, 'lng' => 68.1200, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Warah, Kamber Shahdadkot, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Kamber Shahdadkot', 'tehsil_name' => 'Warah', 'location_type' => 3, 'is_enable' => 1, 'lat' => 27.9800, 'lng' => 68.1400, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+            // Karachi Central District
+            ['name' => 'North Nazimabad, Karachi Central, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi Central', 'tehsil_name' => 'North Nazimabad', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.9300, 'lng' => 67.0500, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Liaquatabad, Karachi Central, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi Central', 'tehsil_name' => 'Liaquatabad', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.8900, 'lng' => 67.0500, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Gulberg, Karachi Central, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi Central', 'tehsil_name' => 'Gulberg', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.9100, 'lng' => 67.0500, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'New Karachi, Karachi Central, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi Central', 'tehsil_name' => 'New Karachi', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.9700, 'lng' => 67.0500, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+           
+            // Karachi East District
+
+            ['name' => 'Gulshan-e-Iqbal, Karachi East, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi East', 'tehsil_name' => 'Gulshan-e-Iqbal', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.9100, 'lng' => 67.1400, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Jamshed, Karachi East, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi East', 'tehsil_name' => 'Jamshed', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.8600, 'lng' => 67.0800, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Ferozabad, Karachi East, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi East', 'tehsil_name' => 'Ferozabad', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.8900, 'lng' => 67.1200, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+
+           
+            // Karachi West District
+            ['name' => 'Orangi, Karachi West, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi West', 'tehsil_name' => 'Orangi', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.9500, 'lng' => 66.9700, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Mominabad, Karachi West, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi West', 'tehsil_name' => 'Mominabad', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.9300, 'lng' => 66.9500, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Gadap, Karachi West, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi West', 'tehsil_name' => 'Gadap', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.9900, 'lng' => 66.9300, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+           
+            // Karachi South District
+
+            ['name' => 'Saddar, Karachi South, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi South', 'tehsil_name' => 'Saddar', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.8600, 'lng' => 67.0200, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Clifton, Karachi South, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi South', 'tehsil_name' => 'Clifton', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.8200, 'lng' => 67.0300, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Defence, Karachi South, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi South', 'tehsil_name' => 'Defence', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.8200, 'lng' => 67.0700, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+           
+            // Karachi District
+            ['name' => 'Malir, Karachi Malir, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi Malir', 'tehsil_name' => 'Malir', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.9500, 'lng' => 67.2000, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Bin Qasim, Karachi Malir, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Karachi Malir', 'tehsil_name' => 'Bin Qasim', 'location_type' => 3, 'is_enable' => 1, 'lat' => 24.8000, 'lng' => 67.2500, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+
+
+            // Khairpur District (from LandOfPurePeople) :contentReference[oaicite:2]{index=2}  
+            ['name' => 'Faiz Ganj, Khairpur, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Khairpur', 'tehsil_name' => 'Faiz Ganj', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Gambat, Khairpur, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Khairpur', 'tehsil_name' => 'Gambat', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kingri, Khairpur, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Khairpur', 'tehsil_name' => 'Kingri', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kot Diji, Khairpur, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Khairpur', 'tehsil_name' => 'Kot Diji', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Nara, Khairpur, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Khairpur', 'tehsil_name' => 'Nara', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Sobho Dero, Khairpur, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Khairpur', 'tehsil_name' => 'Sobho Dero', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Thari Mirwah, Khairpur, Sindh', 'province_name' => 'Sindh', 'district_name' => 'Khairpur', 'tehsil_name' => 'Thari Mirwah', 'location_type' => 3, 'is_enable' => 1, 'lat' => null, 'lng' => null, 'disable_reason' => null, 'created_at' => $now, 'updated_at' => $now],
+
+        ];
+        DB::table('geo_location')->insert($sindh_tehsile);
 
         
 
