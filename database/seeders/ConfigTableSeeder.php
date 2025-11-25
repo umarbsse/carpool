@@ -19,6 +19,7 @@ class ConfigTableSeeder extends Seeder
         DB::table('config')->insert([
             ['key' => 'public_template', 'value' =>'basic'],
             ['key' => 'private_template', 'value' =>'admin_lte'],
+            ['key' => 'server_template', 'value' =>'server'],
         ]);
     }
 }

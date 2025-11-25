@@ -20,11 +20,5 @@ class DatabaseSeeder extends Seeder
             GeoLocationSeeder::class,
             ConfigTableSeeder::class,
         ]);
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

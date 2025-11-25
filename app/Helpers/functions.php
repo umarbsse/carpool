@@ -1,5 +1,6 @@
 <?php
 //
+    use Illuminate\Support\Facades\View;
     use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Collection;
     if (!function_exists('get_view_path')) {
@@ -13,20 +14,41 @@
             return $view; 
         }
     }
+    if (! function_exists('safe_view')) {
+        function safe_view($view, $data = [])
+        {
+            if (View::exists($view)) {
+                return view($view, $data);
+            }else{
+                return view('server.view_not_exist', $data);
+            }
+        }
+    }
     if (!function_exists('get_controller_name')) {
         function get_controller_name($request){
             $route = $request->route();
             $action = $route->getActionName(); // e.g., App\Http\Controllers\HomeController@index
-            $methodName = explode('@', $action)[1] ?? null; // index
-            return strtolower($methodName); 
+            return strtolower(class_basename(explode('@', $action)[0]));
         }
     }
     if (!function_exists('get_controller_method_name')) {
         function get_controller_method_name($request){
             $route = $request->route();
-            $action = $route->getActionName(); // e.g., App\Http\Controllers\HomeController@index
-            $controllerName = class_basename(explode('@', $action)[0]); // HomeController
-            return strtolower($controllerName); 
+            $action = $route->getActionName();
+            $methodName = explode('@', $action)[1] ?? null; // index
+            return strtolower($methodName); 
+        }
+    }
+    if (!function_exists('get_public_template_name')) {
+        function get_public_template_name(){
+            $template_name = env('APP_TEMPLATE_PUBLIC', 'basic'); // second param is default
+            return strtolower($template_name); 
+        }
+    }
+    if (!function_exists('get_private_template_name')) {
+        function get_private_template_name(){
+            $template_name = env('APP_TEMPLATE_PRIVATE', 'admin_lte'); // second param is default
+            return strtolower($template_name); 
         }
     }
     if (!function_exists('print_arr')) {

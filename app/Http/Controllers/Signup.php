@@ -14,8 +14,8 @@ class Signup
         $data = [
             'title' => 'Create your account',
         ];
-        $view = get_view_path($request);
-        return view($view, $data);
+        $view = get_private_template_name().'.'.get_controller_name($request).'.'.get_controller_method_name($request);
+        return safe_view($view,$data);
     }
     function register(Request $request){
         // 1️⃣ Validate the form inputs
