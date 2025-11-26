@@ -15,7 +15,6 @@ class Signup
             'title' => 'Create your account',
         ];
         $view = get_private_template_name().'.'.get_controller_name($request).'.'.get_controller_method_name($request);
-        $view = get_private_template_name().'.'.get_controller_name($request).'.'.get_controller_method_name($request);
         return safe_view($view,$data);
     }
     function register(Request $request){

@@ -13,15 +13,17 @@ class Login
         $data = [
             'title' => 'Sigin to your account',
         ];
-        $view = get_view_path($request);
-        return view($view, $data);
+        $view = get_private_template_name().'.'.get_controller_name($request).'.'.get_controller_method_name($request);
+        return safe_view($view,$data);
     }
     function auth(Request $request){
         
-        $data = $request->validate([
+        $validated = $request->validate([
             "login"=>"required",
             "password"=>"required",
         ]);
+        // 2️⃣ Create the user
+        $data = $validated;
         $general = new General();
         $response = $general->authenticate_user($data['login'], $data['password']);
         if(count($response)==0){

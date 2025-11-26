@@ -173,7 +173,6 @@
 <!-- /.register-box -->
 
 <!-- jQuery -->
-<script src="../../"></script>
 <script src="{{ asset(get_private_template_name().'/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset(get_private_template_name().'/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
