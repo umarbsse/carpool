@@ -25,7 +25,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('first_name', 255);
-            $table->string('last_name', 255);
+            $table->string('last_name', 255)->nullable();
             $table->string('cnic');
             $table->string('email', 191)->unique(); // reduced length for utf8mb4_bin
             $table->string('mobile', 191)->unique(); // reduced length

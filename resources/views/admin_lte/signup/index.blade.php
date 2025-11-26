@@ -1,26 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account</title>
-
-    <!-- Bootstrap 5.3.2 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .required::after {
-            content: " *";
-            color: red;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Registration Page (v2)</title>
+<style>
+    .invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+</style>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ asset(get_private_template_name().'/plugins/fontawesome-free/css/all.min.css') }}">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="{{ asset(get_private_template_name().'/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset(get_private_template_name().'/dist/css/adminlte.min.css') }}">
 </head>
-
-<body class="bg-light">
-
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="card shadow p-4" style="width: 420px; border-radius: 12px;">
-        <h3 class="text-center mb-4">{{ $title }}</h3>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+    </div>
+    <div class="card-body">
+      <p class="login-box-msg">Register a new membership</p>
+      {{-- 
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>Fix bellow errors:</strong>
@@ -45,111 +56,128 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate>
-            @csrf
-
-            <!-- First Name / Last Name -->
-            <div class="row mb-3">
-                <div class="col">
-                    <label class="form-label required">First Name</label>
-                    <input type="text" name="first_name" 
-                        class="form-control @error('first_name') is-invalid @enderror" 
-                        value="{{ old('first_name') }}" placeholder="Enter first name" required>
-                    @error('first_name')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="col">
-                    <label class="form-label required">Last Name</label>
-                    <input type="text" name="last_name" 
-                        class="form-control @error('last_name') is-invalid @enderror" 
-                        value="{{ old('last_name') }}" placeholder="Enter last name" required>
-                    @error('last_name')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
+        --}}
+      <form method="POST" action="{{ route('register') }}" >
+        @csrf
+        <div class="input-group mb-3">
+          <input type="text" name="first_name" class="form-control  @error('first_name') is-invalid @enderror" value="{{ old('first_name') }}" placeholder="Enter First name">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
             </div>
-
-            <!-- CNIC -->
-            <div class="mb-3">
-                <label class="form-label required">CNIC</label>
-                <input type="text" name="cnic" 
-                    class="form-control @error('cnic') is-invalid @enderror" 
-                    value="{{ old('cnic') }}" placeholder="12345-1234567-1" required>
-                @error('cnic')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+          </div>
+            @error('first_name')
+                <span class="success invalid-feedback" style="display:block;">{{ $message }}</span>
+            @enderror
+          
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="last_name" class="form-control  @error('last_name') is-invalid @enderror" value="{{ old('last_name') }}" placeholder="Enter Last name">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
             </div>
-
-            <!-- Mobile -->
-            <div class="mb-3">
-                <label class="form-label required">Mobile</label>
-                <input type="text" name="mobile" 
-                    class="form-control @error('mobile') is-invalid @enderror" 
-                    value="{{ old('mobile') }}" placeholder="0300-1234567" required>
-                @error('mobile')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+          </div>
+            @error('last_name')
+                <span class="success invalid-feedback" style="display:block;">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="cnic" class="form-control  @error('cnic') is-invalid @enderror" value="{{ old('cnic') }}" placeholder="Enter CNIC">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
             </div>
-
-            <!-- Email -->
-            <div class="mb-3">
-                <label class="form-label required">Email</label>
-                <input type="email" name="email" 
-                    class="form-control @error('email') is-invalid @enderror" 
-                    value="{{ old('email') }}" placeholder="example@gmail.com" required>
-                @error('email')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+          </div>
+            @error('cnic')
+                <span class="success invalid-feedback" style="display:block;">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="mobile" class="form-control  @error('mobile') is-invalid @enderror" value="{{ old('mobile') }}" placeholder="Enter Mobile Number">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
             </div>
-
-            <!-- Password -->
-            <div class="mb-3">
-                <label class="form-label required">Password</label>
-                <input type="password" name="password" 
-                    class="form-control @error('password') is-invalid @enderror" 
-                    placeholder="Enter password" required>
-                @error('password')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+          </div>
+            @error('mobile')
+                <span class="success invalid-feedback" style="display:block;">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" name="email" class="form-control  @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Enter email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
             </div>
-
-            <!-- Confirm Password -->
-            <div class="mb-4">
-                <label class="form-label required">Confirm Password</label>
-                <input type="password" name="password_confirmation" 
-                    class="form-control" placeholder="Re-enter password" required>
+          </div>
+            @error('email')
+                <span class="success invalid-feedback" style="display:block;">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control  @error('password') is-invalid @enderror" name="password" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
             </div>
+          </div>
+            @error('password')
+                <span class="success invalid-feedback" style="display:block;">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control  @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="Retype password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+            @error('password_confirmation')
+                <span class="success invalid-feedback" style="display:block;">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <label for="agreeTerms">
+               I agree to the <a href="#">terms</a>
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
 
-            <button class="btn btn-primary w-100" type="submit">Create Account</button>
-            <div class="mt-3 text-center">
-                                        Already have an account? <a href="{{ route('login') }}">Login here</a>
+      <div class="social-auth-links text-center">
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fab fa-facebook mr-2"></i>
+          Sign up using Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fab fa-google-plus mr-2"></i>
+          Sign up using Google+
+        </a>
+      </div>
 
-                </div>
-        </form>
-
+      <a href="login.html" class="text-center">I already have a membership</a>
     </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
 </div>
+<!-- /.register-box -->
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    // Bootstrap form validation
-    (function () {
-        'use strict';
-        const forms = document.querySelectorAll('.needs-validation');
-        Array.from(forms).forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    })();
-</script>
-
+<!-- jQuery -->
+<script src="../../"></script>
+<script src="{{ asset(get_private_template_name().'/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset(get_private_template_name().'/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset(get_private_template_name().'/dist/js/adminlte.min.js') }}"></script>
 </body>
 </html>
