@@ -39,18 +39,19 @@
                 </div>
             @endif
         @if(session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h6><i class="icon fas fa-check"></i> {{ session('success') }}</h6>
+                  
+                </div>
         @endif
 
         @if(session('error'))
                             
                 <div class="alert alert-danger alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-                    {{ session('error') }}
+                    <h6><i class="icon fas fa-ban"></i> {{ session('error') }}</h6>
+                    
                 </div>
         @endif
         <form method="POST" action="{{ route('auth') }}">
@@ -99,10 +100,10 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
+        <a href="{{route('forgotpassword')}}">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="{{route('signup')}}" class="text-center">Register a new membership</a>
       </p>
     </div>
     <!-- /.card-body -->

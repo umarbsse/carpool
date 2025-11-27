@@ -12,9 +12,9 @@ class ForgotPassword
     function index(Request $request){
         $data = [
             'title' => 'Forgot your password',
-        ];
-        $view = get_view_path($request);
-        return view($view, $data);
+        ];        
+        $view = get_private_template_name().'.'.get_controller_name($request).'.'.get_controller_method_name($request);
+        return safe_view($view,$data);
     }
     function reset_password(Request $request){
         $validated = $request->validate([
@@ -38,7 +38,7 @@ class ForgotPassword
             //die();
             return redirect()->back()->with('success', 'If Email exist you\'ll get the email reset link.');
         } else {
-            //return redirect()->back()->with('success', 'If Email exist you\'ll get the email reset link.');
+            return redirect()->back()->with('success', 'If Email exist you\'ll get the email reset link.');
         }
     }
     function send_reset_email(Request $request){
@@ -83,8 +83,12 @@ class ForgotPassword
                 'token' => $token,
             ];
 
-            $view = get_view_path($request);
-            return view($view, $data);
+            //$view = get_view_path($request);
+            //return view($view, $data);
+
+            
+            $view = get_private_template_name().'.'.get_controller_name($request).'.'.get_controller_method_name($request);
+            return safe_view($view,$data);
         } else {
             return redirect()->route('forgotpassword')
                             ->with('error', 'Invalid password reset token or token expired!');
