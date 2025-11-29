@@ -9,7 +9,7 @@ class Dashboard
     //
     function index(Request $request){
         $data = [
-            'title' => 'Sigin to your account',
+            'title' => 'Dashboard',
             'headline' => env('APP_NAME'),
             'one_liner_msg' => 'Sign in to start your session',
         ];

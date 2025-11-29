@@ -1,0 +1,1 @@
+@include(get_private_template_name().'.widgets.dashboard.js')
