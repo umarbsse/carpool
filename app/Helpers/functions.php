@@ -3,9 +3,11 @@
     use Illuminate\Support\Facades\View;
     use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Collection;
+    use Illuminate\Support\Facades\Route;
+
     if (!function_exists('get_view_path')) {
-        function get_view_path($request, $view=NULL){
-            $route = $request->route();
+        function get_view_path($view=NULL){
+            $route = request()->route();
             $action = $route->getActionName(); // e.g., App\Http\Controllers\HomeController@index
             $controllerName = class_basename(explode('@', $action)[0]); // HomeController
             $methodName = explode('@', $action)[1] ?? null; // index
@@ -25,16 +27,22 @@
         }
     }
     if (!function_exists('get_controller_name')) {
-        function get_controller_name($request){
-            $route = $request->route();
-            $action = $route->getActionName(); // e.g., App\Http\Controllers\HomeController@index
+        function get_controller_name(){
+            $action = request()->route()->getActionName();
             return strtolower(class_basename(explode('@', $action)[0]));
         }
     }
+    if (!function_exists('is_controller')) {
+        function is_controller($controller_name){
+            if(get_controller_name()==$controller_name){
+                return true;
+            }
+            return false;
+        }
+    }
     if (!function_exists('get_controller_method_name')) {
-        function get_controller_method_name($request){
-            $route = $request->route();
-            $action = $route->getActionName();
+        function get_controller_method_name(){
+            $action = request()->route()->getActionName();
             $methodName = explode('@', $action)[1] ?? null; // index
             return strtolower($methodName); 
         }

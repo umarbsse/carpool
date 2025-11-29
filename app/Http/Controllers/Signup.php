@@ -10,13 +10,13 @@ use App\Models\General; // Include the model
 class Signup
 {
     //
-    function index(Request $request){        
+    function index(){        
         $data = [
             'title' => 'Create your account',
             'headline' => env('APP_NAME'),
             'one_liner_msg' => 'Register a new membership',
         ];
-        $view = get_private_template_name().'.'.get_controller_name($request).'.'.get_controller_method_name($request);
+        $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
     function register(Request $request){

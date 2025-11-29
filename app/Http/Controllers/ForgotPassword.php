@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Hash;
 class ForgotPassword
 {
     //
-    function index(Request $request){
+    function index(){
         $data = [
             'title' => 'Forgot your password',
         ];        
-        $view = get_private_template_name().'.'.get_controller_name($request).'.'.get_controller_method_name($request);
+        $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
     function reset_password(Request $request){
@@ -87,7 +87,7 @@ class ForgotPassword
             //return view($view, $data);
 
             
-            $view = get_private_template_name().'.'.get_controller_name($request).'.'.get_controller_method_name($request);
+            $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
             return safe_view($view,$data);
         } else {
             return redirect()->route('forgotpassword')

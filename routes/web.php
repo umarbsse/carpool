@@ -8,6 +8,7 @@ use App\Http\Controllers\Signup;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Logout;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\MyAccount;
 
 
 
@@ -64,5 +65,6 @@ Route::post('/password_update',[ForgotPassword::class,'password_update'])->name(
 
 Route::middleware(['auth_middleware'])->group(function () {
     Route::get('/dashboard',[Dashboard::class,'index'])->name('dashboard');
+    Route::get('/change_password',[MyAccount::class,'change_password'])->name('change_password');
 });
 
