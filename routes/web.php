@@ -48,7 +48,6 @@ Route::get('/reset_password', function () {
 
 
 Route::get('/send_reset_email/{reset_id}',[ForgotPassword::class,'send_reset_email'])->name('send_reset_email');
-
 Route::get('/new_password/{reset_token}',[ForgotPassword::class,'new_password'])->name('new_password');
 Route::post('/password_update',[ForgotPassword::class,'password_update'])->name('password_update');
 
@@ -66,5 +65,6 @@ Route::post('/password_update',[ForgotPassword::class,'password_update'])->name(
 Route::middleware(['auth_middleware'])->group(function () {
     Route::get('/dashboard',[Dashboard::class,'index'])->name('dashboard');
     Route::get('/change_password',[MyAccount::class,'change_password'])->name('change_password');
+    Route::post('/my_account_password_update',[MyAccount::class,'password_update'])->name('my_account_password_update');
 });
 

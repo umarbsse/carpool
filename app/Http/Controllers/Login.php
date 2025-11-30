@@ -33,15 +33,12 @@ class Login
         }else if (!Hash::check($data['password'], $response['password'])) {
             return redirect()->back()->with('error', 'Authentication Failed!');
         }else{
-           // print_arr($response);
-           // die();
-           // dd($response);
-            // create your own session
-            session([
-                'user_id'   => $response['id'],
-                'user_name' => $response['first_name']." ".$response['last_name'],
-                'role'     => $response['role_id']
-            ]);
+            $session_data= array(
+                "user_id"=>$response['id'],
+                "user_name"=>$response['first_name']." ".$response['last_name'],
+                "role"=>$response['role_id'],
+            );
+            create_login_session($session_data);
             return redirect()->route('dashboard');
         }
     }
