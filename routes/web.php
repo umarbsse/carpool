@@ -58,12 +58,20 @@ Route::post('/password_update',[ForgotPassword::class,'password_update'])->name(
 
 
 #####################################
-#####  Dashboard  ######
+#####      Logined Routes      ######
 #####################################
 
 
 Route::middleware(['auth_middleware'])->group(function () {
+    ########################
+    #####  Dashboard  ######
+    ########################
     Route::get('/dashboard',[Dashboard::class,'index'])->name('dashboard');
+    ########################
+    #####  MyAccount  ######
+    ########################
+    Route::get('/setting',[MyAccount::class,'setting'])->name('setting');
+    Route::post('/update_setting',[MyAccount::class,'update_setting'])->name('update_setting');
     Route::get('/change_password',[MyAccount::class,'change_password'])->name('change_password');
     Route::post('/my_account_password_update',[MyAccount::class,'password_update'])->name('my_account_password_update');
 });

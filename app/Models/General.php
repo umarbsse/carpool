@@ -9,12 +9,17 @@ use Illuminate\Support\Facades\DB;
 class General extends Model
 {
     
-    function get($table, $where=NULL){
+    function get($table, $where=NULL, $select=NULL){
         if(allow_print_query()==true){
             DB::enableQueryLog();
         }
 
         $query  = DB::table($table);
+        if ($select === null) {
+                $query->select('*');
+        }else{
+                $query->select($select);
+        }
         if ($where !== null) {
             // Check if the array is numerically indexed (e.g., [['col', '>', 5], ...])
             // The check below confirms if keys are NOT associative/strings.

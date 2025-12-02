@@ -70,7 +70,7 @@
           </li>
           <li class="nav-header">My Account</li>
           <li class="nav-item">
-            <a href="iframe.html" class="nav-link">
+            <a href="{{route('setting')}}" class="nav-link">
               <i class="nav-icon fas fa-ellipsis-h"></i>
               <p>Setting</p>
             </a>
