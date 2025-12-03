@@ -1,4 +1,3 @@
-{{get_controller_name()}}
 @if (is_controller('dashboard'))
   <!-- jQuery -->
   <script src="{{ asset(get_private_template_name().'/plugins/jquery/jquery.min.js') }}"></script>
@@ -43,13 +42,42 @@
   <script src="{{ asset(get_private_template_name().'/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
   <!-- AdminLTE App -->
   <script src="{{ asset(get_private_template_name().'/dist/js/adminlte.js') }}"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="{{ asset(get_private_template_name().'/dist/js/demo.js') }}"></script>
   <!-- Page specific script -->
   <script>
   $(function () {
     bsCustomFileInput.init();
   });
+  </script>
+@endif
+@if (is_controller('location'))
+  <!-- DataTables  & Plugins -->
+  <script src="{{ asset(get_private_template_name().'/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/jszip/jszip.min.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/pdfmake/pdfmake.min.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/pdfmake/vfs_fonts.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js') }}"></script>
+  <!-- Page specific script -->
+  <script>
+    $(function () {
+      $('.data_table').DataTable({
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "responsive": true,
+      });
+    });
   </script>
 @endif
 

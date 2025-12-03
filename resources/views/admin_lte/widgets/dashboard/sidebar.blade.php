@@ -17,17 +17,6 @@
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -45,45 +34,45 @@
           <li class="nav-header">Location</li>
           <li class="nav-item">
             <a href="iframe.html" class="nav-link">
-              <i class="nav-icon fas fa-ellipsis-h"></i>
+              <i class="nav-icon fas fa-map-marked-alt"></i>
               <p>Add location</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="iframe.html" class="nav-link">
-              <i class="nav-icon fas fa-ellipsis-h"></i>
-              <p>List</p>
+            <a href="{{route('location_list')}}" class="nav-link">
+              <i class="nav-icon fas fa-globe-europe"></i>
+              <p>Location List</p>
             </a>
           </li>
           <li class="nav-header">Users</li>
           <li class="nav-item">
             <a href="iframe.html" class="nav-link">
-              <i class="nav-icon fas fa-ellipsis-h"></i>
-              <p>New User</p>
+              <i class="nav-icon fas fa-user-plus"></i>
+              <p>Add User</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="iframe.html" class="nav-link">
-              <i class="nav-icon fas fa-ellipsis-h"></i>
-              <p>List</p>
+              <i class="nav-icon fas fa-users"></i>
+              <p>User List</p>
             </a>
           </li>
           <li class="nav-header">My Account</li>
           <li class="nav-item">
             <a href="{{route('setting')}}" class="nav-link">
-              <i class="nav-icon fas fa-ellipsis-h"></i>
+              <i class="nav-icon fas fa-cog"></i>
               <p>Setting</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('change_password')}}" class="nav-link">
-              <i class="nav-icon fas fa-ellipsis-h"></i>
+              <i class="nav-icon fas fa-fingerprint"></i>
               <p>Change Password</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{route('logout')}}" class="nav-link">
-              <i class="nav-icon fas fa-ellipsis-h"></i>
+              <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>Logout</p>
             </a>
           </li>

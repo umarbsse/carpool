@@ -8,6 +8,7 @@ use App\Http\Controllers\Signup;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Logout;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Location;
 use App\Http\Controllers\MyAccount;
 
 
@@ -67,6 +68,10 @@ Route::middleware(['auth_middleware'])->group(function () {
     #####  Dashboard  ######
     ########################
     Route::get('/dashboard',[Dashboard::class,'index'])->name('dashboard');
+    ########################
+    #####  Location  ######
+    ########################
+    Route::get('/location_list',[Location::class,'list'])->name('location_list');
     ########################
     #####  MyAccount  ######
     ########################

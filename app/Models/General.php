@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class General extends Model
 {
     
-    function get($table, $where=NULL, $select=NULL){
+    function get($table, $where=NULL, $select=NULL, $order_by=NULL){
         if(allow_print_query()==true){
             DB::enableQueryLog();
         }
@@ -39,6 +39,9 @@ class General extends Model
                 // Example: ['status' => 1, 'role' => 'admin']
                 $query->where($where);
             }
+        }
+        if ($order_by !== null) {
+            $query->orderBy($order_by['column_name'], $order_by['sort']);
         }
         $result = $query->get();
 
