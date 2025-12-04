@@ -38,6 +38,8 @@
   <script src="{{ asset(get_private_template_name().'/plugins/jquery/jquery.min.js') }}"></script>
   <!-- Bootstrap 4 -->
   <script src="{{ asset(get_private_template_name().'/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- Bootstrap Switch -->
+  <script src="{{ asset(get_private_template_name().'plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
   <!-- bs-custom-file-input -->
   <script src="{{ asset(get_private_template_name().'/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
   <!-- AdminLTE App -->
@@ -63,8 +65,6 @@
   <script src="{{ asset(get_private_template_name().'/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
   <script src="{{ asset(get_private_template_name().'/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
   <script src="{{ asset(get_private_template_name().'/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="../../dist/js/demo.js') }}"></script>
   <!-- Page specific script -->
   <script>
     $(function () {

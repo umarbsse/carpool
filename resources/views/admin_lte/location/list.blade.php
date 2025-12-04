@@ -1,5 +1,4 @@
 @extends(get_private_template_name().'.layouts.dashboard.app')
-
 @section('main_content')
         <div class="row">
           <div class="col-12">
@@ -7,6 +6,7 @@
               <div class="card card-info">
                 <div class="card-header">
                   <h3 class="card-title">Location List</h3>
+    @include(get_private_template_name().'.widgets.dashboard.modal.add')
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -16,21 +16,31 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Location Type</th>
-                                    <th>lat</th>
-                                    <th>lng</th>
                                     <th>Status</th>
-                                    <th>Created at</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($location as $area)
                                     <tr>
                                         <td>{{ $area['name'] }}</td>
-                                        <td>{{ $area['location_type'] }}</td>
-                                        <td>{{ $area['lat'] }}</td>
-                                        <td>{{ $area['lng'] }}</td>
-                                        <td>{{ $area['is_enable'] }}</td>
-                                        <td>{{ $area['created_at'] }}</td>
+                                        <td>
+                                            @if($area['location_type'] == '1')
+                                                Province
+                                            @elseif($area['location_type'] == '2')
+                                                District
+                                            @elseif($area['location_type'] == '3')
+                                                Tehsile
+                                            @elseif($area['location_type'] == '4')
+                                                on Demand
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($area['is_enable'] == '2')
+                                                <span class="badge badge-success"><i class="fas fa-check-circle"></i> Active</span>
+                                            @else
+                                                <span class="badge badge-danger"><i class="fas fa-times-circle"></i> Disable</span>
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -38,10 +48,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Location Type</th>
-                                    <th>lat</th>
-                                    <th>lng</th>
                                     <th>Status</th>
-                                    <th>Created at</th>
                                 </tr>
                             </tfoot>
                             </table>
@@ -56,5 +63,4 @@
           </div>
           <!-- /.col -->
         </div>
-    <!-- /.content -->
 @endsection

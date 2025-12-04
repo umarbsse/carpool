@@ -69,8 +69,9 @@ Route::middleware(['auth_middleware'])->group(function () {
     ########################
     Route::get('/dashboard',[Dashboard::class,'index'])->name('dashboard');
     ########################
-    #####  Location  ######
+    #####  Location  #######
     ########################
+    Route::get('/add_location',[Location::class,'add_location'])->name('add_location');
     Route::get('/location_list',[Location::class,'list'])->name('location_list');
     ########################
     #####  MyAccount  ######
