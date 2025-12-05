@@ -71,7 +71,8 @@ Route::middleware(['auth_middleware'])->group(function () {
     ########################
     #####  Location  #######
     ########################
-    Route::get('/add_location',[Location::class,'add_location'])->name('add_location');
+    Route::get('/add_location_form',[Location::class,'add_location_form'])->name('add_location_form');
+    Route::post('/add_location',[Location::class,'add_location'])->name('add_location');
     Route::get('/location_list',[Location::class,'list'])->name('location_list');
     ########################
     #####  MyAccount  ######

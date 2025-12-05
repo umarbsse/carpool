@@ -39,7 +39,7 @@
   <!-- Bootstrap 4 -->
   <script src="{{ asset(get_private_template_name().'/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <!-- Bootstrap Switch -->
-  <script src="{{ asset(get_private_template_name().'plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
   <!-- bs-custom-file-input -->
   <script src="{{ asset(get_private_template_name().'/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
   <!-- AdminLTE App -->
@@ -80,6 +80,10 @@
     });
   </script>
 @endif
+
+
+  <!-- Custom JS -->
+  <script src="{{ asset(get_private_template_name().'/js/custom.js') }}"></script>
 
 
 

@@ -6,7 +6,7 @@
               <div class="card card-info">
                 <div class="card-header">
                   <h3 class="card-title">Location List</h3>
-    @include(get_private_template_name().'.widgets.dashboard.modal.add')
+                  @include(get_private_template_name().'.widgets.dashboard.modal.add')
                 </div>
                 <div class="card-body">
                     <div class="row">
