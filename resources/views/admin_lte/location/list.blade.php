@@ -17,6 +17,7 @@
                                     <th>Name</th>
                                     <th>Location Type</th>
                                     <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,6 +41,11 @@
                                             @else
                                                 <span class="badge badge-danger"><i class="fas fa-times-circle"></i> Disable</span>
                                             @endif
+                                        </td>
+                                        <td>
+                                            <a href="#"><i class="fas fa-edit"></i> Update</a>
+                                            &nbsp;&nbsp;|&nbsp;&nbsp;
+                                            <a href="{{ route('location_delete', $area['id']) }}"  onclick="return confirm('Are you sure you want to delete this location?');"><i class="fas fa-trash-alt"></i> Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

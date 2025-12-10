@@ -29,17 +29,6 @@ class Location
         } else {
            return redirect()->back()->with('error', 'Failed to insert location.');
         }
-        // 2️⃣ Create the user
-        //$row = $validated;
-        //unset($row['password_confirmation']);
-        //$row['password'] = Hash::make($validated['password']);
-        //$general = new General();
-        //$id = $general->insert_data('users',$row);
-        //if ($id) {            
-        //    return redirect()->route('login')->with('success', 'Account created successfully. Login to continue! ');
-        ///} else {
-        //    return redirect()->back()->with('error', 'Failed to insert user.');
-        //}
     }
     function add_location_form(){
         $data = [
@@ -67,10 +56,29 @@ class Location
         $where = NULL;
         $order_by['column_name']='name';
         $order_by['sort']='asc';
-        $select =  array("name", "location_type", "lat", "lng","is_enable","disable_reason","created_at");
+        $select =  array("id","name", "location_type", "lat", "lng","is_enable","disable_reason","created_at");
         $data['location'] = $general->get('geo_location', $where, $select, $order_by);
        // print_arr($data['location']);
         $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
+    }
+    function delete(Request $request){
+        $token = $request->token;
+        $general = new General();
+        $where = [
+            ["id", "=", $token],
+        ];
+        $result = $general->get('geo_location', $where);
+        if(count($result)==1){
+            //$token = 123123123123123;
+            $is_deleted = $general->delete_by_id('geo_location', $token);
+            if($is_deleted){
+                return redirect()->back()->with('success', 'Geolocation data deleted successfully! ');
+            }else{
+                return redirect()->back()->with('error', 'Unable to delete geolocation data!');
+            }
+        }else{
+            return redirect()->back()->with('error', 'Unable to delete geolocation data!');
+        }        
     }
 }

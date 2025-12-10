@@ -74,6 +74,7 @@ Route::middleware(['auth_middleware'])->group(function () {
     Route::get('/add_location_form',[Location::class,'add_location_form'])->name('add_location_form');
     Route::post('/add_location',[Location::class,'add_location'])->name('add_location');
     Route::get('/location_list',[Location::class,'list'])->name('location_list');
+    Route::get('/location_delete/{token}',[Location::class,'delete'])->name('location_delete');
     ########################
     #####  MyAccount  ######
     ########################

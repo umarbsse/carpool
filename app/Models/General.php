@@ -44,7 +44,6 @@ class General extends Model
             $query->orderBy($order_by['column_name'], $order_by['sort']);
         }
         $result = $query->get();
-
         return json_decode(json_encode($result), true);
     }
     function authenticate_user($login_pram, $password){
@@ -58,12 +57,18 @@ class General extends Model
         return DB::table($table_name)->insertGetId($data);
     }
     function update_data($table_name, $where, $data){
-        //DB::enableQueryLog();
         $updated = DB::table($table_name)->where($where)->update($data);
-        //dd(DB::getQueryLog());
         if ($updated > 0) {
             return true;
         }else{
+            return false;
+        }
+    } 
+    function delete_by_id($table_name, $id){
+        $deleted = DB::table($table_name)->where('id', $id)->delete();
+        if ($deleted) {
+            return true;
+        } else {
             return false;
         }
     } 
