@@ -65,8 +65,21 @@
   <script src="{{ asset(get_private_template_name().'/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
   <script src="{{ asset(get_private_template_name().'/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
   <script src="{{ asset(get_private_template_name().'/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <!-- Select2 -->
+<script src="{{ asset(get_private_template_name().'/plugins/select2/js/select2.full.min.js') }}"></script>
+
+
   <!-- Page specific script -->
   <script>
+    $(function () {
+//Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+});
     $(function () {
       $('.data_table').DataTable({
         "paging": true,
@@ -82,8 +95,8 @@
 @endif
 
 
-  <!-- Custom JS -->
-  <script src="{{ asset(get_private_template_name().'/js/custom.js') }}"></script>
+<!-- Custom JS -->
+<script src="{{ asset(get_private_template_name().'/js/custom.js') }}"></script>
 
 
 

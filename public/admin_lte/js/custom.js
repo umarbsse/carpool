@@ -6,9 +6,8 @@ $('#add_general_modal').on('click', function () {
         url: actionUrl,      // Laravel route
         type: 'GET',
         success: function (response) {
-            $("#modal-add .modal-content").html(response)
-            //console.log(response)
-            //$('#result').html(response);
+            $("#modal-add .modal-content").html(response);
+            $('.select2').select2();
         },
         error: function (xhr) {
             alert("Error loading data");

@@ -39,7 +39,8 @@
                                             @if($area['is_enable'] == '2')
                                                 <span class="badge badge-success"><i class="fas fa-check-circle"></i> Active</span>
                                             @else
-                                                <span class="badge badge-danger"><i class="fas fa-times-circle"></i> Disable</span>
+                                                <span class="badge badge-danger"><i class="fas fa-times-circle"></i> Disable</span><br>
+                                                <small>{{ $area['disable_reason']}}</small>
                                             @endif
                                         </td>
                                         <td>

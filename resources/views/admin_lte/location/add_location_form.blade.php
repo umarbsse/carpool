@@ -13,11 +13,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Lat</label>
-                                    <input type="text" class="form-control"  placeholder="Enter latitude">
+                                    <input type="text" name="lat" class="form-control"  placeholder="Enter latitude">
                                 </div>
                                 <div class="form-group">
                                     <label>Is Enable</label>                       
-                                    <select class="form-control select2" style="width: 100%;">
+                                    <select class="form-control select2" name="is_enable" style="width: 100%;">
                                         <option value="">--Select--</option>
                                         <option value="2" selected="selected">Yes</option>
                                         <option value="1">No</option>
@@ -29,17 +29,18 @@
                                     <label>District, Province</label>                                    
                                     <select name="parent_loc" class="form-control select2" style="width: 100%;">
                                         <option value="">--Select--</option>
-                                        <option value="1">Alaska</option>
-                                        <option value="2">California</option>
+                                        @foreach ($district_list as $area)
+                                            <option value="{{$area['id']}}">{{ "{$area['district_name']}, {$area['province_name']}" }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Lang</label>
-                                    <input type="text" class="form-control" placeholder="Enter Lang">
+                                    <input type="text" name="lng" class="form-control" placeholder="Enter Lang">
                                 </div>
                                 <div class="form-group">
                                     <label>Disable Reason</label>
-                                    <input type="text" class="form-control" placeholder="Enter Disable Reason">
+                                    <input type="text" class="form-control" name="disable_reason" placeholder="Enter Disable Reason">
                                 </div>
                             </div>
                         </div>

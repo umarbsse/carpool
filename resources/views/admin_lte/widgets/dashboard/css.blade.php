@@ -28,3 +28,12 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset(get_private_template_name().'/dist/css/adminlte.min.css') }}">
 @endif
+@if (is_controller('location'))
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset(get_private_template_name().'/plugins/select2/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset(get_private_template_name().'/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+@endif
+
+
+
+<link rel="stylesheet" href="{{ asset(get_private_template_name().'/css/custom.css') }}">

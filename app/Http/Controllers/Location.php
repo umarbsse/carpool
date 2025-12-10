@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\General; // Include the model
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
+
 
 
 
@@ -18,23 +20,63 @@ class Location
             'parent_loc'            => 'required',
         ]);
         //$row = $validated;
-        $row['name'] = $validated['name'];
-        $row['province_name'] = $validated['name'];
-        $row['province_name'] = $validated['name'];
-        $row['location_type'] = 4;
+        print_arr($validated);
+
         $general = new General();
-        $id = $general->insert_data('geo_location',$row);
-        if ($id) {            
-            return redirect()->back()->with('success', 'Location added successfully! ');
+        $where = [
+            ["id", "=", $validated['parent_loc']],
+        ];
+        $location = $general->get('geo_location', $where);
+        if(count($location)==1){
+            $request->validate([
+                'name' => [
+                                'required',
+                                Rule::unique('geo_location')
+                                    ->where('province_name', $location[0]['province_name'])
+                                    ->where('district_name', $location[0]['district_name']),
+                            ],
+                        ], [
+                            'name.unique' => 'This area already exists for the selected province and district.',
+                        ]);
+            $row['name'] = $validated['name'];
+            $row['tehsil_name'] = $validated['name'];
+            $row['province_name'] = $location[0]['province_name'];
+            $row['district_name'] = $location[0]['district_name'];
+            $row['lat'] = $request->post('lat');
+            $row['lng'] = $request->post('lng');
+            $row['is_enable'] = $request->post('is_enable');
+            $row['disable_reason'] = $request->post('disable_reason');
+            if($row['is_enable']==2){
+                $row['disable_reason'] = "";
+            }
+            $row['location_type'] = 4;
+            $id = $general->insert_data('geo_location',$row);
+            if ($id) {            
+                return redirect()->back()->with('success', 'Location added successfully! ');
+            } else {
+            return redirect()->back()->with('error', 'Failed to insert location.');
+            }
         } else {
            return redirect()->back()->with('error', 'Failed to insert location.');
-        }
+        }        
     }
     function add_location_form(){
+        $general = new General();
         $data = [
-            'title' =>'Add New Location',
+            'title' =>'Add New Tehsile',
             'form_action_url' =>route('add_location'),
         ];
+        
+        $where = array('location_type'=>2);
+        $order_by['column_name']='district_name';
+        $order_by['sort']='asc';
+        $select =  array();
+
+        $data['district_list'] = $general->get('geo_location', $where, $select, $order_by);
+
+        //SELECT * FROM `geo_location` WHERE location_type=2;
+
+       // print_arr($data['district_list']);
         $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
@@ -58,7 +100,7 @@ class Location
         $order_by['sort']='asc';
         $select =  array("id","name", "location_type", "lat", "lng","is_enable","disable_reason","created_at");
         $data['location'] = $general->get('geo_location', $where, $select, $order_by);
-       // print_arr($data['location']);
+
         $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
