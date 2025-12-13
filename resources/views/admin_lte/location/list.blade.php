@@ -6,7 +6,7 @@
               <div class="card card-info">
                 <div class="card-header">
                   <h3 class="card-title">Location List</h3>
-                  @include(get_private_template_name().'.widgets.dashboard.modal.add')
+                  @include(get_private_template_name().'.widgets.dashboard.modal.add_btn')
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -44,7 +44,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="#"><i class="fas fa-edit"></i> Update</a>
+                                            <a class="modal-update_btn" href="#"><i class="fas fa-edit"></i> Update</a>
                                             &nbsp;&nbsp;|&nbsp;&nbsp;
                                             <a href="{{ route('location_delete', $area['id']) }}"  onclick="return confirm('Are you sure you want to delete this location?');"><i class="fas fa-trash-alt"></i> Delete</a>
                                         </td>

@@ -34,7 +34,7 @@
     }
     if (!function_exists('is_controller')) {
         function is_controller($controller_name){
-            if(get_controller_name()==$controller_name){
+            if( strtolower(get_controller_name())==($controller_name)){
                 return true;
             }
             return false;
@@ -59,6 +59,26 @@
             return strtolower($template_name); 
         }
     }
+
+
+    if (!function_exists('current_route_name')) {
+        function current_route_name(){
+            return strtolower(Route::currentRouteName()); 
+        }
+    }
+
+
+    if (!function_exists('is_route')) {
+        function is_route($route){
+            if(strtolower(Route::currentRouteName())==strtolower($route)){
+                return true;
+            }
+            return false;
+        }
+    }
+
+
+
     if (!function_exists('print_arr')) {
         function print_arr($array) {
             echo "<pre>";print_r($array);echo "</pre>";

@@ -1,4 +1,4 @@
-@if (is_controller('dashboard'))
+@if (is_route("dashboard"))
   <!-- jQuery -->
   <script src="{{ asset(get_private_template_name().'/plugins/jquery/jquery.min.js') }}"></script>
   <!-- jQuery UI 1.11.4 -->
@@ -51,7 +51,7 @@
   });
   </script>
 @endif
-@if (is_controller('location'))
+@if (is_route("location_list"))
   <!-- DataTables  & Plugins -->
   <script src="{{ asset(get_private_template_name().'/plugins/datatables/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset(get_private_template_name().'/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>

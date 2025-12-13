@@ -33,12 +33,6 @@
               </li>
           <li class="nav-header">Location</li>
           <li class="nav-item">
-            <a href="iframe.html" class="nav-link">
-              <i class="nav-icon fas fa-map-marked-alt"></i>
-              <p>Add location</p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="{{route('location_list')}}" class="nav-link">
               <i class="nav-icon fas fa-globe-europe"></i>
               <p>Location List</p>
