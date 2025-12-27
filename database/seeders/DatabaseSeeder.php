@@ -26,6 +26,9 @@ class DatabaseSeeder extends Seeder
             VehicleTypesTableSeeder::class,
             VehicleTableSeeder::class,
             DriverVehicleTableSeeder::class,
+            BookingStatusTableSeeder::class,
+            RidePaymentStatusTableSeeder::class,
+            PaymentMethodTableSeeder::class,
         ]);
     }
 }

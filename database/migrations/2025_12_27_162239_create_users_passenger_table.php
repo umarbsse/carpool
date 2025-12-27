@@ -23,6 +23,7 @@ return new class extends Migration
             $table->tinyInteger('is_mobile_verified')->default(1)->comment('1=No, 2=Yes');
             $table->timestamp('mobile_verified_at')->nullable(); 
             $table->string('password');
+            $table->decimal('wallet_balance', 12, 2)->default(0);
             $table->enum('status', ['active', 'blocked', 'pending'])->default('pending');
             $table->text('status_descripition')->default('');;
             $table->rememberToken();
