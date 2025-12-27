@@ -15,10 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
         $this->call([
             RolesTableSeeder::class,
             GeoLocationSeeder::class,
             ConfigTableSeeder::class,
+            UsersTableSeeder::class,
         ]);
     }
 }

@@ -51,7 +51,7 @@
   });
   </script>
 @endif
-@if (is_route("location_list"))
+@if (is_controller('location') || is_controller('users') )
   <!-- DataTables  & Plugins -->
   <script src="{{ asset(get_private_template_name().'/plugins/datatables/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset(get_private_template_name().'/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>

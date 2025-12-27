@@ -9,6 +9,7 @@ use App\Http\Controllers\Login;
 use App\Http\Controllers\Logout;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Location;
+use App\Http\Controllers\Users;
 use App\Http\Controllers\MyAccount;
 
 
@@ -75,6 +76,13 @@ Route::middleware(['auth_middleware'])->group(function () {
     Route::post('/add_location',[Location::class,'add_location'])->name('add_location');
     Route::get('/location_list',[Location::class,'list'])->name('location_list');
     Route::get('/location_delete/{token}',[Location::class,'delete'])->name('location_delete');
+    ########################
+    #######  Users  ########
+    ########################
+    Route::get('/user_list',[Users::class,'list'])->name('user_list');
+    Route::get('/add_user_form',[Users::class,'add_user_form'])->name('add_user_form');
+    
+    Route::post('/add_user',[Users::class,'add_user'])->name('add_user');
     ########################
     #####  MyAccount  ######
     ########################

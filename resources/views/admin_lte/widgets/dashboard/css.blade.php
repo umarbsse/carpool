@@ -28,7 +28,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset(get_private_template_name().'/dist/css/adminlte.min.css') }}">
 @endif
-@if (is_controller('location'))
+@if (is_controller('location') || is_controller('users') )
   <!-- Select2 -->
   <link rel="stylesheet" href="{{ asset(get_private_template_name().'/plugins/select2/css/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset(get_private_template_name().'/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">

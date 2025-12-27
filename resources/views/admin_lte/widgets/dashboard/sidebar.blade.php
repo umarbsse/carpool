@@ -40,14 +40,8 @@
           </li>
           <li class="nav-header">Users</li>
           <li class="nav-item">
-            <a href="iframe.html" class="nav-link">
-              <i class="nav-icon fas fa-user-plus"></i>
-              <p>Add User</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="iframe.html" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+            <a href="{{route('user_list')}}" class="nav-link">
+              <i class="nav-icon fas fa-globe-europe"></i>
               <p>User List</p>
             </a>
           </li>
