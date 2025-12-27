@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('ride', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('location_start');
-            $table->unsignedInteger('location_end');
+            // Add foreign key separately
+            $table->foreignId('location_start')->constrained('geo_location', 'id')->cascadeOnDelete();
+            $table->foreignId('location_end')->constrained('geo_location', 'id')->cascadeOnDelete();
             $table->tinyInteger('max_seats');
             $table->tinyInteger('availble_seats');
             $table->timestamp('start_time');
             $table->timestamp('end_time');
-            $table->bigInteger('driver_id');
+            $table->foreignId('driver_id')->constrained('users_driver', 'id')->cascadeOnDelete();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+            $table->engine = 'InnoDB';
         });
     }
 

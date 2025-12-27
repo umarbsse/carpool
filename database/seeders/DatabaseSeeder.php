@@ -21,6 +21,11 @@ class DatabaseSeeder extends Seeder
             GeoLocationSeeder::class,
             ConfigTableSeeder::class,
             UsersTableSeeder::class,
+            UsersPassengerTableSeeder::class,
+            UsersDriverTableSeeder::class,
+            VehicleTypesTableSeeder::class,
+            VehicleTableSeeder::class,
+            DriverVehicleTableSeeder::class,
         ]);
     }
 }

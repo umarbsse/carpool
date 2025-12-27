@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('name', 255)->unique();
             $table->string('description')->nullable();
             $table->timestamps();
-            
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_bin';
         });
@@ -27,10 +26,12 @@ return new class extends Migration
             $table->string('last_name', 255)->nullable();
             $table->string('cnic');
             $table->string('email', 191)->unique(); // reduced length for utf8mb4_bin
-            $table->string('mobile', 191)->unique(); // reduced length
-            $table->string('password');
+            $table->tinyInteger('is_email_verified')->default(1)->comment('1=No, 2=Yes');
             $table->timestamp('email_verified_at')->nullable();
-            $table->timestamp('phone_verified_at')->nullable(); 
+            $table->string('mobile', 191)->unique(); // reduced length
+            $table->tinyInteger('is_mobile_verified')->default(1)->comment('1=No, 2=Yes');
+            $table->timestamp('mobile_verified_at')->nullable(); 
+            $table->string('password');
             // Create role_id as unsignedBigInteger with default 1
             $table->unsignedBigInteger('role_id')->default(1);
             // Add foreign key separately
@@ -42,7 +43,6 @@ return new class extends Migration
             // Set engine to InnoDB
             $table->engine = 'InnoDB';
         });
-
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             // Set engine to InnoDB
             $table->engine = 'InnoDB';
