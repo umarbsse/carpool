@@ -20,7 +20,7 @@ class UsersDriverTableSeeder extends Seeder
                 'cnic' => '12345-1234567-1',
                 'email' => 'driver@gmail.com',
                 'mobile' => '03652365877', 
-                'password' => Hash::make('admin'), 
+                'password' => Hash::make('driver'), 
                 'created_at' => now(), 
                 'updated_at' => now()],
         ]);

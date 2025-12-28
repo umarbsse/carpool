@@ -14,6 +14,10 @@ use App\Http\Controllers\MyAccount;
 
 
 
+use App\Http\Controllers\driver\Ride;
+
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -90,5 +94,11 @@ Route::middleware(['auth_middleware'])->group(function () {
     Route::post('/update_setting',[MyAccount::class,'update_setting'])->name('update_setting');
     Route::get('/change_password',[MyAccount::class,'change_password'])->name('change_password');
     Route::post('/my_account_password_update',[MyAccount::class,'password_update'])->name('my_account_password_update');
+
+
+    ########################
+    #####  DRIVER ROUTES  ######
+    ########################
+    Route::get('/ride_list',[Ride::class,'list'])->name('ride_list');
 });
 

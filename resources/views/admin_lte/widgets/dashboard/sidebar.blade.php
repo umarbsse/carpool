@@ -26,11 +26,18 @@
           
           
           <li class="nav-item">
-                <a href="{{route('dashboard')}}" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard</p>
-                </a>
-              </li>
+            <a href="{{route('dashboard')}}" class="nav-link active">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-header">Rides</li>
+          <li class="nav-item">
+            <a href="{{route('ride_list')}}" class="nav-link">
+              <i class="nav-icon fas fa-globe-europe"></i>
+              <p>Ride List</p>
+            </a>
+          </li>
           <li class="nav-header">Location</li>
           <li class="nav-item">
             <a href="{{route('location_list')}}" class="nav-link">

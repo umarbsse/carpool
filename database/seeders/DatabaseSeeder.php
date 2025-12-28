@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-
         $this->call([
             RolesTableSeeder::class,
             GeoLocationSeeder::class,
@@ -29,6 +28,7 @@ class DatabaseSeeder extends Seeder
             BookingStatusTableSeeder::class,
             RidePaymentStatusTableSeeder::class,
             PaymentMethodTableSeeder::class,
+            RideStatusTableSeeder::class,
         ]);
     }
 }

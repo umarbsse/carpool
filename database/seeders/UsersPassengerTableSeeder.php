@@ -19,8 +19,8 @@ class UsersPassengerTableSeeder extends Seeder
                 'last_name' => 'Shahzad',
                 'cnic' => '12345-1234567-1',
                 'email' => 'passenger@gmail.com',
-                'mobile' => '03652365877', 
-                'password' => Hash::make('admin'), 
+                'mobile' => '0365-2365877', 
+                'password' => Hash::make('passenger'), 
                 'created_at' => now(), 
                 'updated_at' => now()],
         ]);

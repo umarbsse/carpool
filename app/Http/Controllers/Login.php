@@ -23,11 +23,21 @@ class Login
         $validated = $request->validate([
             "login"=>"required",
             "password"=>"required",
+            'user_type' => 'required|in:p,d',
         ]);
         // 2️⃣ Create the user
         $data = $validated;
         $general = new General();
-        $response = $general->authenticate_user($data['login'], $data['password']);
+        $role = "";
+        if($data['user_type']=="p"){
+            $table_name="users_passenger";
+            $role = "passenger";
+        }else if($data['user_type']=="d"){
+            $table_name="users_driver";
+            $role = "driver";
+        }
+        
+        $response = $general->authenticate_user($table_name,$data['login'], $data['password']);
         if($response==NULL || count($response)==0){
             return redirect()->back()->with('error', 'Authentication Failed!');
         }else if (!Hash::check($data['password'], $response['password'])) {
@@ -36,7 +46,7 @@ class Login
             $session_data= array(
                 "user_id"=>$response['id'],
                 "user_name"=>$response['first_name']." ".$response['last_name'],
-                "role"=>$response['role_id'],
+                "role"=>$role,
             );
             create_login_session($session_data);
             return redirect()->route('dashboard');

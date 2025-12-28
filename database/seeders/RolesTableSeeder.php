@@ -27,6 +27,8 @@ class RolesTableSeeder extends Seeder
             ['name' => 'HR', 'description' => 'Humen resource', 'created_at' => now(), 'updated_at' => now()],
             ['name' => 'Booking Manager', 'description' => 'Booking Manager', 'created_at' => now(), 'updated_at' => now()],
             ['name' => 'Ticket Booker', 'description' => 'Ticket Booker', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Passenger', 'description' => 'Passenger', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Driver', 'description' => 'Driver', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }
