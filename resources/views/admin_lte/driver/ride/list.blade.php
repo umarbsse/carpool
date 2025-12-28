@@ -2,7 +2,6 @@
 @section('main_content')
         <div class="row">
           <div class="col-12">
-            
               <div class="card card-info">
                 <div class="card-header">
                   <h3 class="card-title">Location List</h3>
@@ -20,10 +19,10 @@
                                     <th>Seats Availble</th>
                                     <th>Seats Booked</th>
                                     <th>Departure at</th>
-                                    <th>Driver Info</th>
-                                    <th>Vehicle Info</th>
-                                    <th>Created at</th>
-                                    <th>Updated at</th>
+                                    <th>Driver</th>
+                                    <th>Vehicle</th>
+                                    <th>Created</th>
+                                    <th>Updated</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -51,10 +50,10 @@
                                     <th>Seats Availble</th>
                                     <th>Seats Booked</th>
                                     <th>Departure at</th>
-                                    <th>Driver Info</th>
-                                    <th>Vehicle Info</th>
-                                    <th>Created at</th>
-                                    <th>Updated at</th>
+                                    <th>Driver</th>
+                                    <th>Vehicle</th>
+                                    <th>Created</th>
+                                    <th>Updated</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>

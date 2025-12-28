@@ -3,3 +3,8 @@
         {!! $add_modal['button_icon']!!}&nbsp;{{$add_modal['button_title']}}
     </button>
 @endisset
+@isset($btn_link)
+    <a href="{!! $btn_link['button_form_route']!!}" class="{!! $btn_link['button_class']!!}" style="float: right;">
+        {!! $btn_link['button_icon']!!}&nbsp;{{$btn_link['button_title']}}
+    </a>
+@endisset

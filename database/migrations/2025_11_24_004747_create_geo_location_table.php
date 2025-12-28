@@ -20,7 +20,7 @@ return new class extends Migration
             $table->tinyInteger('location_type')->comment('1=Province, 2=District, 3=Tehsil');
             $table->decimal('lat', 10, 7)->nullable();
             $table->decimal('lng', 10, 7)->nullable();
-            $table->tinyInteger('is_enable')->default(1)->comment('1=Yes, 2=No');
+            $table->tinyInteger('is_enable')->default(1)->comment('1=No, 2=Yes');
             $table->text('disable_reason')->nullable()->comment('Reason for disabling');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

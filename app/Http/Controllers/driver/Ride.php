@@ -9,34 +9,22 @@ use Illuminate\Validation\Rule;
 
 class Ride
 {
-    
     function list(){
         $data = [
             'title' => 'Ride List',
             'headline' => env('APP_NAME'),
             'one_liner_msg' => 'Sign in to start your session',
         ];
-        $data['add_modal'] = [
-            'button_title' =>'Add Location',
-            'button_icon' =>'<i class="fas fa-plus-circle"></i>',
-            'button_class' =>'btn btn-success btn-sm',
-            'button_form_route' =>route('add_location_form'),
-            'title' =>'Add New Location',
-            'form_action_url' =>route('add_location'),
-        ];
         $data['btn_link'] = [
-            'button_title' =>'Add Location',
+            'button_form_route' =>route('add_ride'),
+            'button_class' =>'btn btn-warning btn-sm',
             'button_icon' =>'<i class="fas fa-plus-circle"></i>',
-            'button_class' =>'btn btn-success btn-sm',
-            'button_form_route' =>route('add_location_form'),
-            'title' =>'Add New Location',
-            'form_action_url' =>route('add_location'),
+            'button_title' =>'Create New Ride',
         ];
         $general = new General();
         $where = NULL;
         $order_by['column_name']='id';
         $order_by['sort']='desc';
-
         $query = DB::table('rides');
         $select =  [
             'ride.*',
@@ -48,6 +36,22 @@ class Ride
         $data['rides'] = $general->get('ride', $where, $select, $order_by);
         //print_arr($data['rides'] );
 
+        $view = get_private_template_name().'.driver.'.get_controller_name().'.'.get_controller_method_name();
+        return safe_view($view,$data);
+    }
+    function add_ride(){
+        $general = new General();
+        $data = [
+            'title' =>'Add New Ride',
+            'form_action_url' =>route('add_location'),
+        ];
+        
+        $where = array('location_type'=>2,'is_enable'=>2);
+        $order_by['column_name']='district_name';
+        $order_by['sort']='asc';
+        $select =  array();
+
+        $data['district_list'] = $general->get('geo_location', $where, $select, $order_by);
         $view = get_private_template_name().'.driver.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
