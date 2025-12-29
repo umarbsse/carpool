@@ -15,7 +15,7 @@ class General extends Model
         }
 
         $query  = DB::table($table);
-        if ($select === null || (is_array($select) && count($select)==0) ) {
+        if ($select == '' || $select === null || (is_array($select) && count($select)==0) ) {
                 $query->select('*');
         }else{
                 $query->select($select);

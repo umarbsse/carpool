@@ -4,13 +4,13 @@
     <!-- Main content -->
     <div class="row">
           <!-- left column -->
-          <div class="col-md-8">
+          <div class="col-md-10">
             <!-- Input addon -->
-            <form method="POST" action="{{ route('update_setting') }}">
+            <form method="POST" action="{{ route('save_new_ride') }}">
               @csrf
               <div class="card card-info">
                 <div class="card-header">
-                  <h3 class="card-title">Change your account setting</h3>
+                  <h3 class="card-title">Create a new ride</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -25,15 +25,20 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInput">Maximum Seat</label>
-                                <input type="text" name="max_seats" class="form-control @error('max_seats') is-invalid @enderror" value="" placeholder="For e.g 4">
+                                <label for="exampleInput">Total Seat</label>                                    
+                                <select name="max_seats" class="form-control select2" style="width: 100%;">
+                                    <option value="">--Select--</option>
+                                    @for ($i = 1; $i <= get_maximum_seats(); $i++)
+                                        <option value="{{$i}}">{{ "{$i}" }}</option>
+                                    @endfor
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>Driver</label>                                    
-                                <select name="location_start" class="form-control select2" style="width: 100%;">
+                                <select name="driver_id" class="form-control select2" style="width: 100%;">
                                     <option value="">--Select--</option>
-                                    @foreach ($district_list as $area)
-                                        <option value="{{$area['id']}}">{{ "{$area['district_name']}" }}</option>
+                                    @foreach ($driver_list as $dr)
+                                        <option value="{{$dr['id']}}">{{ "{$dr['first_name']} {$dr['last_name']}" }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -53,15 +58,20 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInput">Maximum Seat</label>
-                                <input type="text" name="availble_seats" class="form-control @error('availble_seats') is-invalid @enderror" value="" placeholder="For e.g 3 seats">
+                                <label for="exampleInput">Availble Seat</label>
+                                <select name="availble_seats" class="form-control select2" style="width: 100%;">
+                                    <option value="">--Select--</option>
+                                    @for ($i = 1; $i <= get_maximum_seats(); $i++)
+                                        <option value="{{$i}}">{{ "{$i}" }}</option>
+                                    @endfor
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>Vehicle</label>                                    
-                                <select name="location_start" class="form-control select2" style="width: 100%;">
+                                <select name="vehicle_id" class="form-control select2" style="width: 100%;">
                                     <option value="">--Select--</option>
-                                    @foreach ($district_list as $area)
-                                        <option value="{{$area['id']}}">{{ "{$area['district_name']}" }}</option>
+                                    @foreach ($vehicle_list as $v)
+                                        <option value="{{$v['id']}}">{{ "{$v['name']}" }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -73,7 +83,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Update Setting</button>
+                    <button type="submit" class="btn btn-success">Create new ride</button>
                   </div>
                 <!-- /.card-body -->
               </div>

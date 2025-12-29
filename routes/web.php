@@ -99,7 +99,9 @@ Route::middleware(['auth_middleware'])->group(function () {
     ########################
     #####  DRIVER ROUTES  ######
     ########################
+    
     Route::get('/ride_list',[Ride::class,'list'])->name('ride_list');
     Route::get('/add_ride',[Ride::class,'add_ride'])->name('add_ride');
+    Route::post('/save_new_ride',[Ride::class,'save_new_ride'])->name('save_new_ride');
 });
 

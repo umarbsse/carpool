@@ -32,7 +32,9 @@
         },
         "files": [
             "app/Helpers/functions.php",
-            "app/Helpers/sessions.php"
+            "app/Helpers/sessions.php",
+            "app/Helpers/user.php",
+            "app/Helpers/ride.php"
         ]
     },
     "autoload-dev": {

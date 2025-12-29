@@ -23,6 +23,7 @@
                                     <th>Vehicle</th>
                                     <th>Created</th>
                                     <th>Updated</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -39,6 +40,8 @@
                                         <td>{{ $ride['vehicle_name'] }}</td>
                                         <td>{{ $ride['created_at'] }}</td>
                                         <td>{{ $ride['updated_at'] }}</td>
+                                        <td>{{ $ride['status'] }}</td>
+                                        <td></td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -54,6 +57,7 @@
                                     <th>Vehicle</th>
                                     <th>Created</th>
                                     <th>Updated</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>

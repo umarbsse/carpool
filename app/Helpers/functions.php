@@ -179,14 +179,4 @@
             return env('APP_URL').'/new_password/'.$token;
         }
     }
-
-
-
-
-    
-
-
-
-
-
 ?>

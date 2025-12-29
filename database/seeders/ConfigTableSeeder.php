@@ -20,6 +20,7 @@ class ConfigTableSeeder extends Seeder
             ['key' => 'public_template', 'value' =>'basic'],
             ['key' => 'private_template', 'value' =>'admin_lte'],
             ['key' => 'server_template', 'value' =>'server'],
+            ['key' => 'maximum_seats', 'value' =>10],
         ]);
     }
 }

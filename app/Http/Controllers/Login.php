@@ -43,13 +43,17 @@ class Login
         }else if (!Hash::check($data['password'], $response['password'])) {
             return redirect()->back()->with('error', 'Authentication Failed!');
         }else{
-            $session_data= array(
-                "user_id"=>$response['id'],
-                "user_name"=>$response['first_name']." ".$response['last_name'],
-                "role"=>$role,
-            );
-            create_login_session($session_data);
-            return redirect()->route('dashboard');
+            if(check_user_status($response['status'])){                
+                $session_data= array(
+                    "user_id"=>$response['id'],
+                    "user_name"=>$response['first_name']." ".$response['last_name'],
+                    "role"=>$role,
+                );
+                create_login_session($session_data);
+                return redirect()->route('dashboard');
+            }else{
+                return redirect()->back()->with('error', 'Account Disable Contact at admin!');
+            }            
         }
     }
 }

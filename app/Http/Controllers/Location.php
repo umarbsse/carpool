@@ -20,7 +20,7 @@ class Location
             'parent_loc'            => 'required',
         ]);
         //$row = $validated;
-        print_arr($validated);
+        //print_arr($validated);
 
         $general = new General();
         $where = [
