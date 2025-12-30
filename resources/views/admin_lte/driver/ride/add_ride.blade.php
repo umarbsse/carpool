@@ -17,7 +17,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>From</label>                                    
-                                <select name="location_start" class="form-control select2" style="width: 100%;">
+                                <select name="location_start" id="location_start" class="form-control select2" style="width: 100%;">
                                     <option value="">--Select--</option>
                                     @foreach ($district_list as $area)
                                         <option value="{{$area['id']}}">{{ "{$area['district_name']}" }}</option>
@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Driver</label>                                    
-                                <select name="driver_id" class="form-control select2" style="width: 100%;">
+                                <select name="driver_id" id="driver_id" class="form-control select2" style="width: 100%;">
                                     <option value="">--Select--</option>
                                     @foreach ($driver_list as $dr)
                                         <option value="{{$dr['id']}}">{{ "{$dr['first_name']} {$dr['last_name']}" }}</option>
@@ -50,11 +50,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>To</label>                                    
-                                <select name="location_end" class="form-control select2" style="width: 100%;">
+                                <select name="location_end" id="location_end" class="form-control select2" style="width: 100%;">
                                     <option value="">--Select--</option>
-                                    @foreach ($district_list as $area)
-                                        <option value="{{$area['id']}}">{{ "{$area['district_name']}" }}</option>
-                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
@@ -68,11 +65,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Vehicle</label>                                    
-                                <select name="vehicle_id" class="form-control select2" style="width: 100%;">
+                                <select name="vehicle_id" id="vehicle_id" class="form-control select2" required style="width: 100%;">
                                     <option value="">--Select--</option>
-                                    @foreach ($vehicle_list as $v)
-                                        <option value="{{$v['id']}}">{{ "{$v['name']}" }}</option>
-                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">

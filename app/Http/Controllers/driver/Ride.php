@@ -54,9 +54,14 @@ class Ride
         $select =  array();
         $data['district_list'] = $general->get('geo_location', $where, $select, $order_by);
 
-        $data['driver_list'] = $general->get('users_driver', array('status'=>'active'), '', array('column_name'=>'first_name', 'sort'=>'asc'));
-        $select =  ['id',DB::raw("concat(make, ' ',model,' ',version) as name")];
-        $data['vehicle_list'] = $general->get('vehicles', array('is_enable'=>2), $select, array('column_name'=>'name', 'sort'=>'asc'));
+
+        $where = array('status'=>'active');
+        if(get_user_role()=="driver"){
+            //$where['id'] = get_session('user_id');
+        }
+        $data['driver_list'] = $general->get('users_driver', $where, '', array('column_name'=>'first_name', 'sort'=>'asc'));
+        //$select =  ['id',DB::raw("concat(make, ' ',model,' ',version) as name")];
+        //$data['vehicle_list'] = $general->get('driver_vehicles', array('is_enable'=>2), $select, array('column_name'=>'id', 'sort'=>'asc'));
         $view = get_private_template_name().'.driver.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
@@ -97,5 +102,39 @@ class Ride
         } else {
             return redirect()->back()->with('error', 'Failed to add new Ride.');
         }     
+    }
+    function get_driver_vehicles(Request $request){
+        $driver_id = request('driver_id');
+        $general = new General();
+        $where['is_enable'] = 2;
+        $where['driver_id'] = $driver_id;
+        $select =  [
+            'driver_vehicles.id',
+            DB::raw("(SELECT CONCAT(make,' ',model,' ',version) FROM vehicles WHERE vehicles.id = driver_vehicles.vehicle_id) as name")
+        ];
+        $vehicle_list = $general->get('driver_vehicles', $where, $select, array('column_name'=>'id', 'sort'=>'asc'));
+        return response()->json([
+            'total_data' => count($vehicle_list),
+            'data' => $vehicle_list,
+        ]);
+    }
+    function get_to_location(Request $request){
+        $location_id = request('location_id');
+        $general = new General();
+        //echo $location_id;
+        $where_not_in['column_name'] = 'id';
+        $where_not_in['ids'] = array($location_id);
+
+
+        $where = array('location_type'=>2,'is_enable'=>2);
+        $order_by['column_name']='district_name';
+        $order_by['sort']='asc';
+        $select =  array();
+        $select =  ['id','district_name'];
+        $district_list = $general->get('geo_location', $where, $select, $order_by, $where_not_in);
+        return response()->json([
+            'total_data' => count($district_list),
+            'data' => $district_list,
+        ]);
     }
 }

@@ -7,4 +7,9 @@
            return false;
         }
     }
+    if (!function_exists('get_user_role')) {
+        function get_user_role() {
+            return get_session('role');
+        }
+    }
 ?>

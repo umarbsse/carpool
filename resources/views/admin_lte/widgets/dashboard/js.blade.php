@@ -1,3 +1,10 @@
+
+<script>
+    window.routes = {
+        get_driver_vehicles: "{{ route('get_driver_vehicles') }}",
+        get_to_location: "{{ route('get_to_location') }}"
+    };
+</script>
 @if (is_route("dashboard"))
   <!-- jQuery -->
   <script src="{{ asset(get_private_template_name().'/plugins/jquery/jquery.min.js') }}"></script>
