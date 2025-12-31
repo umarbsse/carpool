@@ -71,7 +71,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInput">Arrival Time</label>
-                                <input type="text" name="end_time" data-minimum-date="{{ get_currentTime('Y-m-d h:i A') }}" class="datetime_picker form-control @error('end_time') is-invalid @enderror" value="" placeholder="For e.g 4">
+                                <input type="text" name="end_time" data-minimum-date="{{ get_currentTime('Y-m-d') }}" class="datetime_picker form-control @error('end_time') is-invalid @enderror" value="" placeholder="For e.g 4">
                             </div>
                         </div>
                     </div>
