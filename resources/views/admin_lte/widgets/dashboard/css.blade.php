@@ -27,8 +27,12 @@
   <link rel="stylesheet" href="{{ asset(get_private_template_name().'/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset(get_private_template_name().'/dist/css/adminlte.min.css') }}">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="{{ asset(get_private_template_name().'/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="{{ asset(get_private_template_name().'/plugins/daterangepicker/daterangepicker.css') }}">
 @endif
-@if (is_controller('location') || is_controller('users') )
+@if (is_controller('location') || is_controller('users') || is_controller('ride') )
   <!-- Select2 -->
   <link rel="stylesheet" href="{{ asset(get_private_template_name().'/plugins/select2/css/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset(get_private_template_name().'/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">

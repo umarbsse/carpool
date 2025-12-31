@@ -4,6 +4,9 @@
         get_driver_vehicles: "{{ route('get_driver_vehicles') }}",
         get_to_location: "{{ route('get_to_location') }}"
     };
+    window.var = {
+        current_Date: "{{ get_currentTime() }}",
+    };
 </script>
 @if (is_route("dashboard"))
   <!-- jQuery -->
@@ -51,6 +54,11 @@
   <script src="{{ asset(get_private_template_name().'/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
   <!-- AdminLTE App -->
   <script src="{{ asset(get_private_template_name().'/dist/js/adminlte.js') }}"></script>
+  <script src="{{ asset(get_private_template_name().'/plugins/moment/moment.min.js') }}"></script>
+  <!-- date-range-picker -->
+  <script src="{{ asset(get_private_template_name().'/plugins/daterangepicker/daterangepicker.js') }}"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="{{ asset(get_private_template_name().'/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
   <!-- Page specific script -->
   <script>
   $(function () {
@@ -58,7 +66,7 @@
   });
   </script>
 @endif
-@if (is_controller('location') || is_controller('users') )
+@if (is_controller('location') || is_controller('users') || is_controller('ride')  )
   <!-- DataTables  & Plugins -->
   <script src="{{ asset(get_private_template_name().'/plugins/datatables/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset(get_private_template_name().'/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
@@ -80,12 +88,15 @@
   <script>
     $(function () {
 //Initialize Select2 Elements
-    $('.select2').select2()
+  //  $('.select2').select2()
 
     //Initialize Select2 Elements
     $('.select2bs4').select2({
       theme: 'bootstrap4'
-    })
+    });
+    $('.select2').select2({
+      theme: 'bootstrap4'
+    });
 });
     $(function () {
       $('.data_table').DataTable({

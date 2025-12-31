@@ -17,7 +17,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>From</label>                                    
-                                <select name="location_start" id="location_start" class="form-control select2" style="width: 100%;">
+                                <select name="location_start" required id="location_start" class="form-control select2" style="width: 100%;">
                                     <option value="">--Select--</option>
                                     @foreach ($district_list as $area)
                                         <option value="{{$area['id']}}">{{ "{$area['district_name']}" }}</option>
@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInput">Departure Time</label>
-                                <input type="datetime-local" name="start_time" class="form-control @error('start_time') is-invalid @enderror" value="" placeholder="For e.g 4">
+                                <input type="text" name="start_time" data-minimum-date="{{ get_currentTime('Y-m-d') }}" class="datetime_picker form-control @error('start_time') is-invalid @enderror" value="" placeholder="For e.g 4">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -71,7 +71,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInput">Arrival Time</label>
-                                <input type="datetime-local" name="end_time" class="form-control @error('end_time') is-invalid @enderror" value="" placeholder="For e.g 4">
+                                <input type="text" name="end_time" data-minimum-date="{{ get_currentTime('Y-m-d h:i A') }}" class="datetime_picker form-control @error('end_time') is-invalid @enderror" value="" placeholder="For e.g 4">
                             </div>
                         </div>
                     </div>

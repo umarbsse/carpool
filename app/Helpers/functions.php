@@ -119,7 +119,16 @@
             if($formate==NULL){
                 return date('Y-m-d H:i:s');
             }
+            //echo $formate;
+            //die();
             return date($formate);
+        }
+    }
+    if (!function_exists('convert_12_hour_datetime_to_24_hour_datetime')) {
+
+        function convert_12_hour_datetime_to_24_hour_datetime($datetime) {
+            $date = DateTime::createFromFormat('Y-m-d h:i A', $datetime);
+            return $date->format('Y-m-d H:i:s');
         }
     }
 

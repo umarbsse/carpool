@@ -57,11 +57,9 @@ class Ride
 
         $where = array('status'=>'active');
         if(get_user_role()=="driver"){
-            //$where['id'] = get_session('user_id');
+            $where['id'] = get_session('user_id');
         }
         $data['driver_list'] = $general->get('users_driver', $where, '', array('column_name'=>'first_name', 'sort'=>'asc'));
-        //$select =  ['id',DB::raw("concat(make, ' ',model,' ',version) as name")];
-        //$data['vehicle_list'] = $general->get('driver_vehicles', array('is_enable'=>2), $select, array('column_name'=>'id', 'sort'=>'asc'));
         $view = get_private_template_name().'.driver.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
@@ -83,8 +81,8 @@ class Ride
         $row['location_end'] = $validated['location_end'];
         $row['max_seats'] = $validated['max_seats'];
         $row['availble_seats'] = $validated['availble_seats'];
-        $row['start_time'] = $validated['start_time'];
-        $row['end_time'] = $validated['end_time'];
+        $row['start_time'] = convert_12_hour_datetime_to_24_hour_datetime($validated['start_time']);
+        $row['end_time'] = convert_12_hour_datetime_to_24_hour_datetime($validated['end_time']);
         $row['driver_id'] = $validated['driver_id'];
         $row['vehicle_id'] = $validated['vehicle_id'];
         $row['status'] = 1;
