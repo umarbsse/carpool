@@ -14,7 +14,10 @@ use App\Http\Controllers\MyAccount;
 
 
 
+
+
 use App\Http\Controllers\driver\Ride;
+use App\Http\Controllers\driver\Vehicle;
 
 
 
@@ -105,5 +108,7 @@ Route::middleware(['auth_middleware'])->group(function () {
     Route::post('/save_new_ride',[Ride::class,'save_new_ride'])->name('save_new_ride');
     Route::get('/get_driver_vehicles',[Ride::class,'get_driver_vehicles'])->name('get_driver_vehicles');
     Route::get('/get_to_location',[Ride::class,'get_to_location'])->name('get_to_location');
+    Route::get('/add_vehicle',[Vehicle::class,'add_vehicle'])->name('add_vehicle');
+    Route::post('/save_new_vehicle',[Vehicle::class,'add_vehicle'])->name('save_new_vehicle');
 });
 

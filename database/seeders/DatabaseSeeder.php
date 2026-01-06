@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             RidePaymentStatusTableSeeder::class,
             PaymentMethodTableSeeder::class,
             RideStatusTableSeeder::class,
+            Vehicle_reg_geo_locations_TableSeeder::class,
         ]);
     }
 }

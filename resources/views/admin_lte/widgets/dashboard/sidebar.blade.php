@@ -31,7 +31,26 @@
               <p>Dashboard</p>
             </a>
           </li>
+          <li class="nav-header">Vehicles</li>
+          <li class="nav-item">
+            <a href="{{route('add_vehicle')}}" class="nav-link">
+              <i class="nav-icon fas fa-plus-circle"></i>
+              <p>Register New Vehicle</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('ride_list')}}" class="nav-link">
+              <i class="nav-icon fas fa-globe-europe"></i>
+              <p>Ride List</p>
+            </a>
+          </li>
           <li class="nav-header">Rides</li>
+          <li class="nav-item">
+            <a href="{{route('add_ride')}}" class="nav-link">
+              <i class="nav-icon fas fa-plus-circle"></i>
+              <p>Create New Ride</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="{{route('ride_list')}}" class="nav-link">
               <i class="nav-icon fas fa-globe-europe"></i>
