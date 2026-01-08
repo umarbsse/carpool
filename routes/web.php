@@ -109,6 +109,8 @@ Route::middleware(['auth_middleware'])->group(function () {
     Route::get('/get_driver_vehicles',[Ride::class,'get_driver_vehicles'])->name('get_driver_vehicles');
     Route::get('/get_to_location',[Ride::class,'get_to_location'])->name('get_to_location');
     Route::get('/add_vehicle',[Vehicle::class,'add_vehicle'])->name('add_vehicle');
-    Route::post('/save_new_vehicle',[Vehicle::class,'add_vehicle'])->name('save_new_vehicle');
+    Route::post('/save_new_vehicle',[Vehicle::class,'save_new_vehicle'])->name('save_new_vehicle');
+
+    Route::get('/vehicle_list',[Vehicle::class,'list'])->name('vehicle_list');
 });
 

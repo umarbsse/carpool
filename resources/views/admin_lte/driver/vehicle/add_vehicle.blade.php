@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-success">Create new ride</button>
+                    <button type="submit" name="submit" value="submit" class="btn btn-success">Create new ride</button>
                   </div>
                 <!-- /.card-body -->
               </div>
