@@ -84,27 +84,25 @@ class Vehicle
             'one_liner_msg' => 'Sign in to start your session',
         ];
         $data['btn_link'] = [
-            'button_form_route' =>route('add_ride'),
+            'button_form_route' =>route('add_vehicle'),
             'button_class' =>'btn btn-warning btn-sm',
             'button_icon' =>'<i class="fas fa-plus-circle"></i>',
-            'button_title' =>'Create New Ride',
+            'button_title' =>'Add New Vehicle',
         ];
         $general = new General();
-        $where = NULL;
+        $where = null;
         $order_by['column_name']='id';
         $order_by['sort']='desc';
         $query = DB::table('rides');
         $select =  [
-            'ride.*',
-            DB::raw("(SELECT CONCAT(geo_location.district_name) FROM geo_location WHERE geo_location.id = ride.location_start) as location_start"),
-            DB::raw("(SELECT CONCAT(geo_location.district_name)  FROM geo_location WHERE geo_location.id = ride.location_end) as location_end"),
-            DB::raw("(SELECT CONCAT(users_driver.first_name, ' ', users_driver.last_name) FROM users_driver WHERE users_driver.id = ride.driver_id ) as driver_name"),
-            DB::raw("(SELECT CONCAT(vehicles.make, ' ', vehicles.model, ' ', vehicles.version) FROM vehicles WHERE vehicles.id = ride.vehicle_id ) as vehicle_name"),
-            DB::raw("(SELECT name FROM ride_status WHERE ride_status.id = ride.status ) as status"),
-
+            'driver_vehicles.*',
+            DB::raw("CASE WHEN is_enable = 1 THEN 'Disable' WHEN is_enable = 2 THEN 'Active'  ELSE 'unknown' END AS is_enable"),
+            DB::raw("(SELECT CONCAT(vehicles.make,' ',vehicles.model,' ',vehicles.version) FROM vehicles WHERE vehicles.id = driver_vehicles.id) as vehicle_name"),
+            DB::raw("(SELECT vehicles_reg_geo_locations.name FROM vehicles_reg_geo_locations WHERE vehicles_reg_geo_locations.id = driver_vehicles.reg_province) as reg_province"),
         ];
-        $data['rides'] = $general->get('ride', $where, $select, $order_by);
-       // print_arr($data['rides'] );
+        $data['vehicles_list'] = $general->get('driver_vehicles', $where, $select, $order_by);
+       //print_arr($data['vehicles_list'] );
+       //die();
 
         $view = get_private_template_name().'.driver.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);

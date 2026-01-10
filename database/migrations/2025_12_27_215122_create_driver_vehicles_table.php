@@ -20,7 +20,9 @@ return new class extends Migration
             $table->text('manufactor_year')->nullable();
             $table->text('reg_year')->nullable();
             $table->text('vehicle_images')->nullable();
-            $table->text('reg_province')->nullable();
+            // Add foreign key separately
+            $table->foreignId('reg_province')->constrained('vehicles_reg_geo_locations', 'id')->cascadeOnDelete();
+            //$table->text('reg_province')->nullable();
             $table->text('reg_city')->nullable();
             $table->text('reg_number');
             $table->tinyInteger('is_reg_verified')->default(1)->comment('1=No, 2=Yes');

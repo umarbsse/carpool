@@ -4,7 +4,7 @@
           <div class="col-12">
               <div class="card card-info">
                 <div class="card-header">
-                  <h3 class="card-title">Location List</h3>
+                  <h3 class="card-title">Vehicle List</h3>
                   @include(get_private_template_name().'.widgets.dashboard.modal.add_btn')
                 </div>
                 <div class="card-body">
@@ -14,33 +14,25 @@
                             <thead>
                                 <tr>
                                     <th>Sr #</th>
-                                    <th>From</th>
-                                    <th>To</th>
-                                    <th>Seats Availble</th>
-                                    <th>Seats Booked</th>
-                                    <th>Departure at</th>
-                                    <th>Driver</th>
                                     <th>Vehicle</th>
-                                    <th>Created</th>
-                                    <th>Updated</th>
+                                    <th>Registration Province</th>
+                                    <th>Registration Year</th>
+                                    <th>manufacture Year</th>
                                     <th>Status</th>
+                                    <th>Updated At</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($rides as $ride)
+                                @foreach ($vehicles_list as $list)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $ride['location_start'] }}</td>
-                                        <td>{{ $ride['location_end'] }}</td>
-                                        <td>{{ $ride['max_seats'] }}</td>
-                                        <td>{{ $ride['availble_seats'] }}</td>
-                                        <td>{{ $ride['start_time'] }}</td>
-                                        <td>{{ $ride['driver_name'] }}</td>
-                                        <td>{{ $ride['vehicle_name'] }}</td>
-                                        <td>{{ $ride['created_at'] }}</td>
-                                        <td>{{ $ride['updated_at'] }}</td>
-                                        <td>{{ $ride['status'] }}</td>
+                                        <td>{{ $list['vehicle_name'] }}</td>
+                                        <td>{{ $list['reg_province'] }}</td>
+                                        <td>{{ $list['reg_year'] }}</td>
+                                        <td>{{ $list['manufactor_year'] }}</td>
+                                        <td>{{ $list['is_enable'] }}</td>
+                                        <td>{{ $list['updated_at'] }}</td>
                                         <td></td>
                                     </tr>
                                 @endforeach
@@ -48,16 +40,12 @@
                             <tfoot>
                                 <tr>
                                     <th>Sr #</th>
-                                    <th>From</th>
-                                    <th>To</th>
-                                    <th>Seats Availble</th>
-                                    <th>Seats Booked</th>
-                                    <th>Departure at</th>
-                                    <th>Driver</th>
                                     <th>Vehicle</th>
-                                    <th>Created</th>
-                                    <th>Updated</th>
+                                    <th>Registration Province</th>
+                                    <th>Registration Year</th>
+                                    <th>manufacture Year</th>
                                     <th>Status</th>
+                                    <th>Updated At</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>

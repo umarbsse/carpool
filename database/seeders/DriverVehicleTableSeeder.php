@@ -12,14 +12,17 @@ class DriverVehicleTableSeeder extends Seeder
      */
     public function run(): void
     {
+        
          DB::table('driver_vehicles')->insert([
             [
-                'driver_id' => 1, 
+                'driver_id' => 1,  
                 'vehicle_id' => 1, 
+                'reg_province' => 1, 
                 'manufactor_year' => '2018',
                 'reg_year' => '2018',
                 'reg_number' => 'AXA-164',
             ],
         ]);
+        
     }
 }

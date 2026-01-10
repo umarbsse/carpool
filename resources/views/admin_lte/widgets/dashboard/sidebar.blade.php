@@ -39,9 +39,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('ride_list')}}" class="nav-link">
+            <a href="{{route('vehicle_list')}}" class="nav-link">
               <i class="nav-icon fas fa-globe-europe"></i>
-              <p>Ride List</p>
+              <p>Vehicle List</p>
             </a>
           </li>
           <li class="nav-header">Rides</li>
