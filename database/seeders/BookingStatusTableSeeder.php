@@ -13,7 +13,7 @@ class BookingStatusTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('ride_booking_status')->insert([
+        /*DB::table('ride_booking_status')->insert([
             ['name' => 'pending',      'description' => 'Booking initiated but not confirmed yet (e.g., payment pending).'],
             ['name' => 'confirmed',    'description' => 'Payment successful, seat reserved.'],
             ['name' => 'cancelled',    'description' => 'Booking cancelled by user or airline.'],
@@ -24,6 +24,16 @@ class BookingStatusTableSeeder extends Seeder
             ['name' => 'refunded',     'description' => 'Payment refunded after cancellation.'],
             ['name' => 'waitlisted',   'description' => 'Flight is full; booking is on waiting list.'],
             ['name' => 'rescheduled',  'description' => 'Flight date/time changed.'],
+        ]);*/
+
+        
+        DB::table('ride_booking_status')->insert([
+            ['name' => 'Pending',      'description' => 'Booking initiated but not confirmed yet (e.g., payment pending).'],
+            ['name' => 'Confirmed',    'description' => 'Payment successful, seat reserved.'],
+            ['name' => 'Cancelled',    'description' => 'Booking cancelled by user or airline.'],
+            ['name' => 'Completed',    'description' => 'Flight completed successfully.'],
+            ['name' => 'No_show',      'description' => 'Passenger did not show up for the flight.'],
+            ['name' => 'Refunded',     'description' => 'Payment refunded after cancellation.'],
         ]);
     }
 }

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamp('start_time');
             $table->timestamp('end_time');
             $table->foreignId('driver_id')->constrained('users_driver', 'id')->cascadeOnDelete();
-            $table->foreignId('vehicle_id')->constrained('vehicles', 'id')->cascadeOnDelete();
+            $table->foreignId('vehicle_id')->constrained('driver_vehicles', 'id')->cascadeOnDelete();
             $table->foreignId('status')->constrained('ride_status', 'id')->cascadeOnDelete();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

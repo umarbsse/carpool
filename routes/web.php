@@ -119,6 +119,7 @@ Route::middleware(['auth_middleware'])->group(function () {
     
 
     Route::get('/book_seat/{ride_token}',[Booking::class,'seat'])->name('book_seat');
+    Route::post('/save_booking',[Booking::class,'save_booking'])->name('save_booking');
 
 });
 

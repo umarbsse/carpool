@@ -97,7 +97,7 @@ class Vehicle
         $select =  [
             'driver_vehicles.*',
             DB::raw("CASE WHEN is_enable = 1 THEN 'Disable' WHEN is_enable = 2 THEN 'Active'  ELSE 'unknown' END AS is_enable"),
-            DB::raw("(SELECT CONCAT(vehicles.make,' ',vehicles.model,' ',vehicles.version) FROM vehicles WHERE vehicles.id = driver_vehicles.id) as vehicle_name"),
+            DB::raw("(SELECT CONCAT(vehicles.make,' ',vehicles.model,' ',vehicles.version) FROM vehicles WHERE vehicles.id = driver_vehicles.vehicle_id) as vehicle_name"),
             DB::raw("(SELECT vehicles_reg_geo_locations.name FROM vehicles_reg_geo_locations WHERE vehicles_reg_geo_locations.id = driver_vehicles.reg_province) as reg_province"),
         ];
         $data['vehicles_list'] = $general->get('driver_vehicles', $where, $select, $order_by);

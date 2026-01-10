@@ -49,6 +49,15 @@ class VehicleTableSeeder extends Seeder
                 'created_at' => now(), 
                 'updated_at' => now()
             ],
+            [
+                'make' => 'Hyundai', 
+                'model' => 'Elantra',
+                'version' => 'Gls',
+                'is_enable' => 2, 
+                'type' => 1, 
+                'created_at' => now(), 
+                'updated_at' => now()
+            ],
         ]);
     }
 }

@@ -94,8 +94,8 @@ $(document).ready(function () {
 });
 // Close picker when clicking outside
 $(document).on('mousedown', function (e) {
-    var widget = $('.datetime_picker').data('datetimepicker').widget; // widget DOM element
+    /*var widget = $('.datetime_picker').data('datetimepicker').widget; // widget DOM element
     if (!$(e.target).closest(widget).length && !$(e.target).is($('.datetime_picker'))) {
         $('.datetime_picker').datetimepicker('hide');
-    }
+    }*/
 });
