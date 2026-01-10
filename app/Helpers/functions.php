@@ -4,6 +4,8 @@
     use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Collection;
     use Illuminate\Support\Facades\Route;
+    use Carbon\Carbon;
+
 
     if (!function_exists('get_view_path')) {
         function get_view_path($view=NULL){
@@ -188,4 +190,30 @@
             return env('APP_URL').'/new_password/'.$token;
         }
     }
+
+    if (!function_exists('mysql_time_to_humen_time')) {
+
+        function mysql_time_to_humen_time($time) {
+            //return Carbon::parse($time)->format('jS M Y, g:i A');
+
+            $dt = Carbon::parse($time);
+
+            // Day number + suffix in <sup>
+            $dayWithSup = $dt->format('j') . '<sup>' . $dt->format('S') . '</sup>';
+
+            // 3-letter month
+            $month = $dt->format('M');
+
+            // Year (omit if current year)
+            $year = $dt->year === now()->year ? '' : ', ' . $dt->format('Y');
+
+            // Time in 12-hour format
+            $timeStr = $dt->format('g:i A');
+
+            // Combine all
+            return $dayWithSup . ' ' . $month . $year . ' ' . $timeStr;
+
+        }
+    }
+
 ?>

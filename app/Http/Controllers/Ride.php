@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\driver;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\General; // Include the model
@@ -36,9 +36,8 @@ class Ride
 
         ];
         $data['rides'] = $general->get('ride', $where, $select, $order_by);
-       // print_arr($data['rides'] );
 
-        $view = get_private_template_name().'.driver.'.get_controller_name().'.'.get_controller_method_name();
+        $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
     function add_ride(){
@@ -60,7 +59,7 @@ class Ride
             $where['id'] = get_session('user_id');
         }
         $data['driver_list'] = $general->get('users_driver', $where, '', array('column_name'=>'first_name', 'sort'=>'asc'));
-        $view = get_private_template_name().'.driver.'.get_controller_name().'.'.get_controller_method_name();
+        $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
     function save_new_ride(Request $request){

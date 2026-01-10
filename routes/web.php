@@ -16,8 +16,9 @@ use App\Http\Controllers\MyAccount;
 
 
 
-use App\Http\Controllers\driver\Ride;
-use App\Http\Controllers\driver\Vehicle;
+use App\Http\Controllers\Ride;
+use App\Http\Controllers\Vehicle;
+use App\Http\Controllers\Booking;
 
 
 
@@ -112,5 +113,12 @@ Route::middleware(['auth_middleware'])->group(function () {
     Route::post('/save_new_vehicle',[Vehicle::class,'save_new_vehicle'])->name('save_new_vehicle');
 
     Route::get('/vehicle_list',[Vehicle::class,'list'])->name('vehicle_list');
+    ########################
+    #####  Passenger ROUTES  ######
+    ########################
+    
+
+    Route::get('/book_seat/{ride_token}',[Booking::class,'seat'])->name('book_seat');
+
 });
 

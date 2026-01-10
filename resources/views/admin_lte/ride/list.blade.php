@@ -21,7 +21,6 @@
                                     <th>Departure at</th>
                                     <th>Driver</th>
                                     <th>Vehicle</th>
-                                    <th>Created</th>
                                     <th>Updated</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -35,31 +34,16 @@
                                         <td>{{ $ride['location_end'] }}</td>
                                         <td>{{ $ride['max_seats'] }}</td>
                                         <td>{{ $ride['availble_seats'] }}</td>
-                                        <td>{{ $ride['start_time'] }}</td>
+                                        <td>{!! mysql_time_to_humen_time($ride['start_time']) !!}</td>
                                         <td>{{ $ride['driver_name'] }}</td>
                                         <td>{{ $ride['vehicle_name'] }}</td>
-                                        <td>{{ $ride['created_at'] }}</td>
-                                        <td>{{ $ride['updated_at'] }}</td>
-                                        <td>{{ $ride['status'] }}</td>
-                                        <td></td>
+                                        <td>{!! mysql_time_to_humen_time($ride['updated_at']) !!}</td>
+                                        <td>{{ ucfirst($ride['status']) }}</td>
+                                        <td>{!! get_ride_action_for_all_users($ride['id']) !!}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>Sr #</th>
-                                    <th>From</th>
-                                    <th>To</th>
-                                    <th>Seats Availble</th>
-                                    <th>Seats Booked</th>
-                                    <th>Departure at</th>
-                                    <th>Driver</th>
-                                    <th>Vehicle</th>
-                                    <th>Created</th>
-                                    <th>Updated</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
                             </tfoot>
                             </table>
                         </div>

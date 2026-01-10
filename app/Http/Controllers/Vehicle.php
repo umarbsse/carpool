@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\driver;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\General; // Include the model
@@ -41,7 +41,7 @@ class Vehicle
             $where['id'] = get_session('user_id');
         }
         $data['driver_list'] = $general->get('users_driver', $where, '', array('column_name'=>'first_name', 'sort'=>'asc'));
-        $view = get_private_template_name().'.driver.'.get_controller_name().'.'.get_controller_method_name();
+        $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
     function save_new_vehicle(Request $request){
@@ -101,10 +101,7 @@ class Vehicle
             DB::raw("(SELECT vehicles_reg_geo_locations.name FROM vehicles_reg_geo_locations WHERE vehicles_reg_geo_locations.id = driver_vehicles.reg_province) as reg_province"),
         ];
         $data['vehicles_list'] = $general->get('driver_vehicles', $where, $select, $order_by);
-       //print_arr($data['vehicles_list'] );
-       //die();
-
-        $view = get_private_template_name().'.driver.'.get_controller_name().'.'.get_controller_method_name();
+        $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
 }

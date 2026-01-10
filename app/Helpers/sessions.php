@@ -22,4 +22,12 @@
             return NULL;
         }
     }
+    if (!function_exists('is_access_role')) {
+        function is_access_role($var){
+            if(get_session($var)==true){
+                return true;
+            }
+            return false;
+        }
+    }
 ?>
