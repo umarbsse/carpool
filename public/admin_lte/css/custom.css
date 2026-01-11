@@ -1,3 +1,55 @@
 .select2-selection--single{
     min-height: 37px;
 }
+.car-seat-wrapper {
+    width: 100%;
+    margin: 30px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    background: #fff;
+}
+
+.seat-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.seat-front {
+    margin-bottom: 20px;
+}
+
+/* Seat Base */
+.seat {
+    padding: 14px 18px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* Seat States */
+.seat-driver {
+    background: #555;
+    color: #fff;
+}
+
+.seat-available {
+    background: #e0e0e0;
+    cursor: pointer;
+}
+
+.seat-available:hover {
+    background: #d5d5d5;
+}
+
+.seat-booked {
+    background: #d32f2f;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+/* Selected seat */
+.seat-selected {
+    background: #4caf50 !important;
+    color: #fff;
+}

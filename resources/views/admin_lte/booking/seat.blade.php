@@ -8,6 +8,7 @@
             <!-- Input addon -->
             <form method="POST" action="{{ route('save_booking') }}">
               @csrf
+              <input type="hidden" name="ride_token" value="{{$rides['id']}}" />
               <div class="card card-info">
                 <div class="card-header">
                   <h3 class="card-title">Basic Info</h3>
@@ -53,92 +54,62 @@
                     </div>
                 </div>
                 <div class="card-header">
-                  <h3 class="card-title">Passenger Details</h3>
+                  <h3 class="card-title">Seat Selection</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12">
-                            <input type="hidden" name="seats[]" id="selected_seats" value="">
+                        <div class="col-md-6 offset-md-3">
+                            <div id="seat_container"></div> <!-- Hidden inputs will go here -->
+                            <div class="car-seat-wrapper">
+                                <!-- Front Seats -->
+                                <div class="seat-row seat-front seat-front-right">
+                                    <div class="seat seat-{{ check_if_seat_is_booked($selected_seats, 1) ? 'booked' : 'available' }}" onclick="selectSeat(this, 1)">
+                                        Seat 1
+                                    </div>
+                                    <div class="seat seat-driver">
+                                        🚗 Driver
+                                    </div>
+                                </div>
 
-<div style="width:260px;margin:30px auto;padding:15px;border:1px solid #ccc;border-radius:8px;font-family:Arial;background:#fff">
-
-    <!-- Front Seats -->
-    <div style="display:flex;justify-content:space-between;margin-bottom:20px">
-
-        <div style="background:#555;color:#fff;padding:14px 18px;border-radius:6px;text-align:center">
-            🚗 Driver
-        </div>
-
-        <div onclick="selectSeat(this, 1)"
-             style="background:#e0e0e0;padding:14px 18px;border-radius:6px;cursor:pointer;text-align:center">
-            Seat 1
-        </div>
-
-    </div>
-
-    <!-- Back Seats -->
-    <div style="display:flex;justify-content:space-between">
-
-        <div onclick="selectSeat(this, 2)"
-             style="background:#e0e0e0;padding:14px 18px;border-radius:6px;cursor:pointer;text-align:center">
-            Seat 2
-        </div>
-
-        <div style="background:#d32f2f;color:#fff;padding:14px 18px;border-radius:6px;text-align:center">
-            Seat 3
-        </div>
-
-        <div onclick="selectSeat(this, 4)"
-             style="background:#e0e0e0;padding:14px 18px;border-radius:6px;cursor:pointer;text-align:center">
-            Seat 4
-        </div>
-
-    </div>
-</div>
-
-<script>
-let selectedSeats = [];
-
-function selectSeat(el, seatNo) {
-
-    // Prevent selecting booked seats
-    if (el.style.backgroundColor === 'rgb(211, 47, 47)') {
-        return;
-    }
-
-    const index = selectedSeats.indexOf(seatNo);
-
-    if (index !== -1) {
-        // Unselect seat
-        selectedSeats.splice(index, 1);
-        el.style.backgroundColor = '#e0e0e0';
-        el.style.color = '#000';
-    } else {
-        // Select seat
-        selectedSeats.push(seatNo);
-        el.style.backgroundColor = '#4CAF50';
-        el.style.color = '#fff';
-    }
-
-    // Update hidden input
-    document.getElementById('selected_seats').value = selectedSeats.join(',');
-}
-</script>
-
+                                <!-- Back Seats -->
+                                <div class="seat-row seat-back">
+                                    <div class="seat seat-{{ check_if_seat_is_booked($selected_seats, 2) ? 'booked' : 'available' }}" onclick="selectSeat(this, 2)">
+                                        Seat 2
+                                    </div>
+                                    <div class="seat seat-{{ check_if_seat_is_booked($selected_seats, 3) ? 'booked' : 'available' }}" onclick="selectSeat(this, 3)">
+                                        Seat 3
+                                    </div>
+                                    <div class="seat seat-{{ check_if_seat_is_booked($selected_seats, 4) ? 'booked' : 'available' }}" onclick="selectSeat(this, 4)">
+                                        Seat 4
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
+                    </div>
+                </div>
+                <div class="card-header">
+                  <h3 class="card-title">Booking Details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="exampleInput">Book Seats</label>
-                                <input type="hidden" name="ride_token" value="{{$rides['id']}}" />
+                                <label for="exampleInput">Booking Status</label>                                    
+                                <select name="booking_status" required class="form-control select2" style="width: 100%;">
+                                    <option value="">--Select--</option>
+                                    @foreach ($booking_status as $list)
+                                        <option value="{{$list['id']}}">{{ $list['name'].' ('.$list['description'].')' }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="exampleInput">Booking Status</label>                                    
-                                <select name="status" required class="form-control select2" style="width: 100%;">
+                                <label for="exampleInput">Payment Status</label>                                    
+                                <select name="payment_status" required class="form-control select2" style="width: 100%;">
                                     <option value="">--Select--</option>
-                                    @foreach ($booking_status as $list)
+                                    @foreach ($payment_status as $list)
                                         <option value="{{$list['id']}}">{{ $list['name'].' ('.$list['description'].')' }}</option>
                                     @endforeach
                                 </select>

@@ -40,7 +40,7 @@ class Booking
             $data['rides'] = $data['rides'][0];
         }
         
-        $where = null;
+        $where['id'] = 2;
         $order_by['column_name']='id';
         $order_by['sort']='asc';
         $select =  [
@@ -48,38 +48,71 @@ class Booking
 
         ];
         $data['booking_status'] = $general->get('ride_booking_status', $where, $select, $order_by);
+
+        $where['id'] = 2;
+        $order_by['column_name']='id';
+        $order_by['sort']='asc';
+        $select =  [
+            '*',
+
+        ];
+        $data['payment_status'] = $general->get('payment_status', $where, $select, $order_by);
+        $where = null;
+
+
+        $where['ride_id'] = $request->ride_token;
+        $order_by['column_name']='id';
+        $order_by['sort']='asc';
+        $select =  [
+            '*',
+
+        ];
+        $data['selected_seats'] = $general->get('ride_bookings', $where, $select, $order_by);
+
+
+        
+
         $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }
     function save_booking(Request $request){
-       // print_arr($_POST);
-        //die();
+
+
         // 1️⃣ Validate the form inputs
 
         
         $validated = $request->validate([
-            'ride_token'            => 'required',
-            'seats'            => 'required',
-            'status'            => 'required'
-        ]);
-        $row['ride_id'] = $validated['ride_token'];
-        $row['passenger_id'] = get_session('user_id');
-        $row['seat_no'] = 1;
-        $row['booking_status'] = $validated['status'];
-        $row['payment_status'] = 1;
-        $row['created_at'] = get_currentTime();
-        $row['updated_at'] = get_currentTime();
-
-        print_arr($row);
-        die();
-
-        
+                                        'ride_token'            => 'required|integer',
+                                        'booking_status'            => 'required|integer',
+                                        'payment_status'            => 'required|integer',
+                                        'selected_seats' => 'required|array|min:1', // just require at least 1
+                                        'selected_seats.*' => [
+                                                                'integer',
+                                                                'distinct',
+                                                                // Check that seat is not already booked for this ride
+                                                                Rule::unique('ride_bookings', 'seat_no')
+                                                                        ->where('ride_id', $request->ride_token)
+                                                                        ->where('booking_status', 2) // assuming 1 = booked/confirmed
+                                                                        ->where('payment_status', 2) // assuming 1 = booked/confirmed
+                                                            ],
+                                        ], 
+                                        [
+                                            'selected_seats.required' => 'Please select at least one seat.',
+                                            'selected_seats.*.distinct' => 'Duplicate seats are not allowed.',
+                                            'selected_seats.*.unique' => 'One or more selected seats are already booked for this ride.',
+                                        ]
+        );
+        $rideId = $validated['ride_token'];   
+        $booking_status = $validated['booking_status'];
+        $payment_status = $validated['payment_status'];
+        $passengerId = get_session('user_id');   
+        $selectedSeats = $request->selected_seats; // ['1','2','4']
         $general = new General();
-        $id = $general->insert_data('ride_bookings',$row);
-        if ($id) {            
-            return redirect()->route('ride_list')->with('success', 'Booking done successfully! ');
+        $ids =  $general->insert_seats($rideId, $passengerId,$booking_status, $payment_status, $selectedSeats);
+        if(is_array($ids) && count($ids)>0){
+            return redirect()->route('ride_list')->with('success', 'seat book successfully! ');
         } else {
-            return redirect()->back()->with('error', 'Failed to add new Ride.');
+            return redirect()->back()->with('error', 'Failed to book seat.');
         }
     }
 }

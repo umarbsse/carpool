@@ -81,4 +81,45 @@ class General extends Model
             return false;
         }
     } 
+
+    function insert_seats($rideId, $passengerId,$booking_status, $payment_status, array $selectedSeats)
+    {
+        return DB::transaction(function() use ($rideId, $passengerId,$booking_status, $payment_status, $selectedSeats) {
+
+            // 1️⃣ Lock rows for selected seats to prevent race conditions
+            $bookedSeats = DB::table('ride_bookings')
+                ->where('ride_id', $rideId)
+                ->whereIn('seat_no', $selectedSeats)
+                ->where('booking_status', 2) // confirmed bookings
+                ->where('payment_status', 2) // confirmed bookings
+                ->lockForUpdate()
+                ->pluck('seat_no')
+                ->toArray();
+
+            // 2️⃣ Check if any seat is already booked
+            $alreadyBooked = array_intersect($selectedSeats, $bookedSeats);
+            if (!empty($alreadyBooked)) {
+                throw \Illuminate\Validation\ValidationException::withMessages([
+                    'selected_seats' => ['Seat(s) '.implode(',', $alreadyBooked).' are already booked.']
+                ]);
+            }
+
+            // 3️⃣ Insert all selected seats safely
+            $insertedIds = [];
+            foreach ($selectedSeats as $seatNo) {
+                $insertedIds[] = DB::table('ride_bookings')->insertGetId([
+                    'ride_id' => $rideId,
+                    'passenger_id' => $passengerId,
+                    'seat_no' => $seatNo,
+                    'booking_status' => $booking_status,  // confirmed
+                    'payment_status' => $payment_status,  // pending
+                    'created_at' => get_currentTime(),
+                    'updated_at' => get_currentTime(),
+                ]);
+            }
+
+            return $insertedIds; // return all inserted IDs
+        });
+    }
+
 }

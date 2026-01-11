@@ -20,4 +20,19 @@
             return $html;
         }
     }
+    if (!function_exists('check_if_seat_is_booked')) {
+        function check_if_seat_is_booked($bookings, $seat_number) {
+            $is_booked = false;
+            for ($i=0; $i <count($bookings) ; $i++) {
+                if($bookings[$i]['seat_no']==$seat_number && $bookings[$i]['booking_status']==2 && $bookings[$i]['payment_status']==2){
+                    $is_booked = true;
+                    return $is_booked;
+                }
+            }
+            return $is_booked;
+        }
+    }
+
+
+
 ?>

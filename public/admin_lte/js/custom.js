@@ -99,3 +99,47 @@ $(document).on('mousedown', function (e) {
         $('.datetime_picker').datetimepicker('hide');
     }*/
 });
+let selectedSeats = [];
+//const maxSeats = 2; // Maximum seats allowed
+
+function selectSeat(el, seatNo) {
+
+    // Prevent selecting booked seats (red color)
+    if (el.style.backgroundColor === 'rgb(211, 47, 47)') { // booked
+        return;
+    }
+
+    const index = selectedSeats.indexOf(seatNo);
+
+    if (index !== -1) {
+        // Unselect seat
+        selectedSeats.splice(index, 1);
+        el.style.backgroundColor = '#e0e0e0';
+        el.style.color = '#000';
+
+        // Remove corresponding hidden input
+        const hiddenInput = document.querySelector(`#seat_container input[value="${seatNo}"]`);
+        if (hiddenInput) hiddenInput.remove();
+
+    } else {
+        // Max seat limit check
+        /*if (selectedSeats.length >= maxSeats) {
+            alert('Maximum ' + maxSeats + ' seats allowed');
+            return;
+        }*/
+
+        // Select seat
+        selectedSeats.push(seatNo);
+        el.style.backgroundColor = '#4CAF50';
+        el.style.color = '#fff';
+
+        // Create hidden input for this seat
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'selected_seats[]';
+        input.value = seatNo;
+        document.getElementById('seat_container').appendChild(input);
+    }
+
+    console.log('Selected Seats:', selectedSeats);
+}
