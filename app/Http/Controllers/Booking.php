@@ -9,9 +9,38 @@ use Illuminate\Validation\Rule;
 
 class Booking
 {
+    function index(){
+        $data = [
+            'title' => 'Booking List',
+            'headline' => env('APP_NAME'),
+        ];
+
+
+        $general = new General();
+        $where = NULL;
+        $order_by['column_name']='id';
+        $order_by['sort']='desc';
+        $select =  [
+            'ride_id',
+            'seat_no',
+            'updated_at',
+            'created_at',
+            DB::raw("(SELECT geo_location.district_name FROM geo_location WHERE geo_location.id = (SELECT ride.location_start FROM ride WHERE ride.id = ride_bookings.ride_id)) as location_start"),
+            DB::raw("(SELECT geo_location.district_name FROM geo_location WHERE geo_location.id = (SELECT ride.location_end FROM ride WHERE ride.id = ride_bookings.ride_id)) as location_end"),
+            DB::raw("(SELECT CONCAT(users_passenger.first_name, ' ', users_passenger.last_name) FROM users_passenger WHERE users_passenger.id = ride_bookings.passenger_id ) as passenger_id"),
+            DB::raw("(SELECT payment_status.name FROM payment_status WHERE payment_status.id = ride_bookings.payment_status) as payment_status"),
+            DB::raw("(SELECT ride_booking_status.name FROM ride_booking_status WHERE ride_booking_status.id = ride_bookings.booking_status) as booking_status ")
+
+        ];
+        $data['booking'] = $general->get('ride_bookings', $where, $select, $order_by);
+
+        
+
+        $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
+        return safe_view($view,$data);
+    }
 
     function seat(Request $request){
-        
         $general = new General();
         $data = [
             'title' =>'Book Seat',
@@ -68,10 +97,6 @@ class Booking
 
         ];
         $data['selected_seats'] = $general->get('ride_bookings', $where, $select, $order_by);
-
-
-        
-
         $view = get_private_template_name().'.'.get_controller_name().'.'.get_controller_method_name();
         return safe_view($view,$data);
     }

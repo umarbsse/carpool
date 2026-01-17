@@ -31,6 +31,13 @@
               <p>Dashboard</p>
             </a>
           </li>
+          <li class="nav-header">Booking</li>
+          <li class="nav-item">
+            <a href="{{route('booking')}}" class="nav-link">
+              <i class="nav-icon fas fa-plus-circle"></i>
+              <p>My Bookings</p>
+            </a>
+          </li>
           <li class="nav-header">Vehicles</li>
           <li class="nav-item">
             <a href="{{route('add_vehicle')}}" class="nav-link">
