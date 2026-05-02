@@ -1,59 +1,237 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Carpool Web App
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based carpool management application for registering drivers and passengers, publishing rides, registering driver vehicles, and booking seats on available trips.
 
-## About Laravel
+The project uses Laravel 12, MariaDB/MySQL, Vite, Tailwind CSS, AdminLTE assets, custom session-based authentication, database queues, and seeded lookup data for locations, vehicles, statuses, and payment methods.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Public home, signup, login, logout, and password reset screens.
+- Session-based authentication for passenger and driver access.
+- Driver ride management with start location, destination, schedule, seat capacity, and assigned vehicle.
+- Driver vehicle registration with vehicle model, registration province, registration year, and plate number.
+- Passenger seat booking with duplicate-seat protection for confirmed bookings.
+- Booking list with passenger, ride, payment status, and booking status details.
+- Location management for provinces, districts, tehsils, latitude, longitude, and enabled/disabled states.
+- Account settings and password change screens.
+- Request logging middleware that stores device, browser, route, payload, and response status data.
+- Queue-ready mail structure for welcome emails and other background mail jobs.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tech Stack
 
-## Learning Laravel
+- PHP 8.2+
+- Laravel 12
+- MariaDB/MySQL
+- Composer
+- Node.js and npm
+- Vite 7
+- Tailwind CSS 4
+- AdminLTE frontend assets
+- Jenssegers Agent for request/device logging
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Requirements
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Make sure these are installed before setup:
 
-## Laravel Sponsors
+- PHP 8.2 or newer
+- Composer
+- Node.js and npm
+- MariaDB or MySQL
+- A local web stack such as WAMP, XAMPP, Laravel Herd, Laragon, or Laravel Sail
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Installation
 
-### Premium Partners
+Clone the project, then install PHP and JavaScript dependencies:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+composer install
+npm install
+```
 
-## Contributing
+Create the environment file and generate the app key:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Code of Conduct
+On Windows PowerShell, use this instead of `cp`:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```powershell
+Copy-Item .env.example .env
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+Create a database named `carpool`, then update `.env`:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```env
+APP_NAME="Carpool"
+APP_URL=http://127.0.0.1:8000
+
+DB_CONNECTION=mariadb
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=carpool
+DB_USERNAME=root
+DB_PASSWORD=
+
+QUEUE_CONNECTION=database
+MAIL_MAILER=log
+```
+
+Run migrations and seed the starter data:
+
+```bash
+php artisan migrate --seed
+```
+
+The seeders add roles, geo locations, config values, sample users, driver/passenger tables, vehicle types, vehicle models, ride statuses, booking statuses, payment statuses, and payment methods.
+
+## Running the App
+
+Start Laravel, the queue listener, and Vite together:
+
+```bash
+composer run dev
+```
+
+Or run each service in a separate terminal:
+
+```bash
+php artisan serve
+npm run dev
+php artisan queue:listen --tries=1
+```
+
+Open the app at:
+
+```text
+http://127.0.0.1:8000
+```
+
+For production assets:
+
+```bash
+npm run build
+```
+
+## Main Routes
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Public home page |
+| `/signup` | Registration page |
+| `/login` | Login page |
+| `/forgotpassword` | Password reset request page |
+| `/dashboard` | Authenticated dashboard |
+| `/ride_list` | Ride list |
+| `/add_ride` | Create a new ride |
+| `/book_seat/{ride_token}` | Book seats for a ride |
+| `/booking` | Booking list |
+| `/add_vehicle` | Register a driver vehicle |
+| `/vehicle_list` | Driver vehicle list |
+| `/location_list` | Location management |
+| `/setting` | Account settings |
+| `/change_password` | Account password change |
+
+Authenticated routes are protected by the custom `auth_middleware` group in `bootstrap/app.php`.
+
+## Database Overview
+
+Important application tables include:
+
+- `users`, `users_driver`, and `users_passenger` for account data.
+- `roles` for role reference data.
+- `geo_location` for provinces, districts, and tehsils.
+- `vehicles_types`, `vehicles`, `vehicles_reg_geo_locations`, and `driver_vehicles` for vehicle records.
+- `ride` and `ride_status` for published rides.
+- `ride_bookings`, `ride_booking_status`, and `payment_status` for seat reservations.
+- `transactions_passenger`, `transactions_driver`, and `payment_method` for wallet/payment data.
+- `request_logs` for global request logging.
+- Laravel `jobs`, `failed_jobs`, `sessions`, and cache tables for framework services.
+
+## Mail and Queues
+
+The app is configured to use the database queue by default:
+
+```env
+QUEUE_CONNECTION=database
+```
+
+During local development, mail is logged instead of sent:
+
+```env
+MAIL_MAILER=log
+```
+
+Run the queue worker when testing queued mail or background jobs:
+
+```bash
+php artisan queue:listen --tries=1
+```
+
+Welcome mail-related classes live in:
+
+- `app/Mail/WelcomeMail.php`
+- `app/Jobs/Auth/SendWelcomeEmailJob.php`
+- `app/Listeners/Auth/SendWelcomeEmail.php`
+
+## Useful Commands
+
+```bash
+php artisan migrate
+php artisan migrate:fresh --seed
+php artisan db:seed
+php artisan route:list
+php artisan cache:clear
+php artisan config:clear
+php artisan test
+npm run dev
+npm run build
+```
+
+Composer also includes helper scripts:
+
+```bash
+composer run setup
+composer run dev
+composer run test
+```
+
+## Project Structure
+
+```text
+app/
+  Actions/Auth/        Registration action flow
+  Events/Auth/         Auth events
+  Helpers/             Global helper functions
+  Http/Controllers/    Page and workflow controllers
+  Http/Middleware/     Custom auth and request logging middleware
+  Jobs/Auth/           Queued auth/mail jobs
+  Listeners/Auth/      Event listeners
+  Mail/                Mailable classes
+  Models/              Eloquent and database helper models
+
+database/
+  migrations/          Database schema
+  seeders/             Starter and lookup data
+
+resources/
+  views/               Blade views for public and AdminLTE templates
+  css/                 Frontend styles
+
+routes/
+  web.php              Web routes
+```
+
+## Development Notes
+
+- The private dashboard template defaults to `admin_lte`.
+- The public template defaults to `basic`.
+- `LogRequests` is global middleware, so the database must be migrated before browsing the app.
+- Seat booking uses a transaction and row locking to reduce double-booking risk.
+- The current authentication flow uses custom session helpers instead of Laravel Breeze, Jetstream, or Fortify.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is based on the Laravel application skeleton and follows the license chosen by the project owner.
